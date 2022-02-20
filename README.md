@@ -36,5 +36,18 @@ This robot was inspired by both the the <a href="http://https://github.com/reube
 * ROS 2 , foxy fitzroy
 
 ## To Do
-<!-- issueTable -->
-<!-- issueTable -->
+*  STEP file of mechanical design ([#1][i1])
+*  SLT files for 3D Printing ([#2][i2])
+*  Pi4 image including: OpenCV, ROS, Unbuntu, Realsense Drivers ([#3][i3])
+*  Build robot hardware ([#4][i4])
+*  Gazebo Simulation ([#5][i5])
+*  Write Inverse Kinematics solver in C++ ([#6][i6])
+* ....
+
+
+[i1]: https://github.com/Jerome-Graves/yertle/issues/1
+[i2]: https://github.com/Jerome-Graves/yertle/issues/2
+[i3]: https://github.com/Jerome-Graves/yertle/issues/3
+[i4]: https://github.com/Jerome-Graves/yertle/issues/4
+[i5]: https://github.com/Jerome-Graves/yertle/issues/5
+[i6]: https://github.com/Jerome-Graves/yertle/issues/6
