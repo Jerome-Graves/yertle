@@ -8,7 +8,7 @@
 
 ## A Quadrupedal robot capable of traversing uneven terrain by modifying foot trajectories using spatial information from a depth camera.
 
-This robot was inspired by both the the <a href="http://https://github.com/reubenstr/Zuko">Zuko</a>, <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a> and <a href="https://github.com/adham-elarabawy/open-quadruped">Open Quadruped</a>.
+This robot was inspired by the <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal </a>, <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a> and <a href="https://github.com/adham-elarabawy/open-quadruped">Open Quadruped</a>.
 
 </br>
 
