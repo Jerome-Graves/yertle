@@ -17,6 +17,9 @@ This robot was inspired by the <a href="https://grabcad.com/library/diy-quadrupe
 
 ![image](https://user-images.githubusercontent.com/12387040/154842373-42b3cce0-2450-4362-b23c-a2e9c3eca3d5.png)
 
+![ezgif-2-765fbd3c28](https://user-images.githubusercontent.com/12387040/159661633-2cda4357-3ed2-483c-bc63-b13c3e34d269.gif)
+
+
 ## Hardware
 
 * 3D printed boday (PLA, TPU)
