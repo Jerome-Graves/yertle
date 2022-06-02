@@ -1,0 +1,5 @@
+{
+    "port": "COM5",
+    "board": "arduino:avr:fio",
+    "programmer": "arduino:atmel_ice"
+}
