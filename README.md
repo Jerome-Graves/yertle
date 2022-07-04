@@ -1,30 +1,37 @@
 ![new yertle logo](https://user-images.githubusercontent.com/12387040/177182736-baa268a0-e6b8-4a5e-a758-1f791cb3d4f0.png)
 
-# Quadrupedal Robot (WIP)
+# A 3D printed Quadrupedal Robot for Locomotion Research (WIP)
 
 <p>
-<img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" /> <img src="https://img.shields.io/badge/ros-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white" /> <img src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white" /></p>
+<img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" /> 
+<img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" /> 
+<img src="https://img.shields.io/badge/ros-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white" /> 
+<img src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white" /></p>
 
 
-## A Quadrupedal robot capable of traversing uneven terrain by modifying foot trajectories using spatial information from a depth camera.
+The objective of the project was to produce a high quality, 3D printed, quadrupedal robot capable of traversing even, uneven and slopped terrain and with comparable dexterity (for its size) as a the Boston Dynamics Spot Mini robot but with a low cost and easy to source parts list and ROS compatibility. 
+<br>
 
-This robot was inspired by the <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal </a>, <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a> and <a href="https://github.com/adham-elarabawy/open-quadruped">Open Quadruped</a>.
 
+
+This robot was inspired by the <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal </a>, <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a> and <a href="https://github.com/adham-elarabawy/open-quadruped">Open Quadruped</a>. The concept was to have the best parts of all designs and make it compatible with <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a> parts.
+The current cost of the robot is around £250
 </br>
 
-# !! Note this is a WIP 
 
-
-![image](https://user-images.githubusercontent.com/12387040/154842373-42b3cce0-2450-4362-b23c-a2e9c3eca3d5.png)
-
+<<<<<<< Updated upstream
 ![ezgif-2-765fbd3c28](https://user-images.githubusercontent.com/12387040/159661633-2cda4357-3ed2-483c-bc63-b13c3e34d269.gif)
 
 
+=======
+![giphy](https://user-images.githubusercontent.com/12387040/177191503-e122d730-9d83-4a72-aaf7-d9e7b08e673a.gif)
+- - -
+>>>>>>> Stashed changes
 ## Hardware
 
-* 3D printed boday (PLA, TPU)
-* Raspbery Pi 4B
-* Intel Reasense D435i
+* 3D printed body (PLA, TPU)
+* Raspberry Pi 4B
+* Intel Realsense D435i
 * Pca9685 16 Channel 12bit Pwm Servo Motor Driver
 * YPG 20A HV SBEC
 * 7.4V 2S 5000mAh 50C LiPo Battery
@@ -34,18 +41,17 @@ This robot was inspired by the <a href="https://grabcad.com/library/diy-quadrupe
 * (4) M3 shafts >100mm( todo)
 * (16X) M3 rod ends (todo)
 
-## Software
-* Ubunto Server 20.04
-* ROS 2 , foxy fitzroy
+![ezgif-2-765fbd3c28](https://user-images.githubusercontent.com/12387040/159661633-2cda4357-3ed2-483c-bc63-b13c3e34d269.gif)
 
+- - -
+## Software
+* Ubuntu Server 20.04
+* ROS 2 , foxy fitzroy
+ - - -
 ## To Do
-*  STEP file of mechanical design ([#1][i1])
-*  SLT files for 3D Printing ([#2][i2])
-*  Pi4 image including: OpenCV, ROS, Unbuntu, Realsense Drivers ([#3][i3])
-*  Build robot hardware ([#4][i4])
-*  Gazebo Simulation ([#5][i5])
-*  Write Inverse Kinematics solver in C++ ([#6][i6])
-* ....
+
+*  ROS integration
+*  Simulation ([#5][i5])
 
 
 [i1]: https://github.com/Jerome-Graves/yertle/issues/1
