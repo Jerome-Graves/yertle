@@ -1,4 +1,4 @@
-![yertle image](https://user-images.githubusercontent.com/12387040/154842903-77c47f65-0455-4f21-bacb-2093f784f7f1.png)
+![new yertle logo](https://user-images.githubusercontent.com/12387040/177182736-baa268a0-e6b8-4a5e-a758-1f791cb3d4f0.png)
 
 # Quadrupedal Robot (WIP)
 
