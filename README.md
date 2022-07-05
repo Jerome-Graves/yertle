@@ -2,16 +2,13 @@
 
 # A 3D Printed Quadrupedal Robot for Locomotion Research (WIP)
 
-<p  style=" display: block;margin-left: auto;margin-right: auto;width:400px;">
+<p align="center" >
 <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" /> 
 <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" /> 
 <img src="https://img.shields.io/badge/ros-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white" /> 
 <img src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white" /></p>
 
-<img  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
-" src="https://user-images.githubusercontent.com/12387040/177191503-e122d730-9d83-4a72-aaf7-d9e7b08e673a.gif">
-
-The objective of the project was to produce a high quality, 3D printed, quadrupedal robot capable of traversing even, uneven and slopped terrain and with comparable dexterity (for its size) as a the Boston Dynamics Spot Mini robot but with a low cost parts list and ROS compatibility. 
+<img  align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;" src="https://user-images.githubusercontent.com/12387040/177191503-e122d730-9d83-4a72-aaf7-d9e7b08e673a.gif">
 
 <br>
 The robot consists of:
@@ -37,15 +34,15 @@ The current cost of the robot is around £250.
 
 ## Robot in action:
 
-<img  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
+<img   align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
 " src="https://user-images.githubusercontent.com/12387040/159661633-2cda4357-3ed2-483c-bc63-b13c3e34d269.gif">
 
 
 
-<img  style=" display: block;margin-left: auto;margin-right: auto;width:800px;border: 5px solid grey;border-radius:20%;
+<img   align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:800px;border: 5px solid grey;border-radius:20%;
 " src="https://media3.giphy.com/media/KFjNRAheWcB1mYteqC/giphy.gif?cid=790b76110cd3a428966bd2091bdf12e668c3ea9aa077822a&rid=giphy.gif&ct=g">
 
-<img  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
+<img   style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
 " src="https://media0.giphy.com/media/11GzEkS1TQJCkdmxBD/giphy.gif?cid=790b7611434c394204cfbd1d88a35720a67b6308b0162ed2&rid=giphy.gif&ct=g">
 
 - - -
