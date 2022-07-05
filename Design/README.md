@@ -91,10 +91,21 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 | Miniature Ball Bearings 5x16x5mm   | 4       | £3           |    [link](https://link-url-link.org)       | |
 |  Deep Groove Ball Bearings 25x37x7mm   | 4       | £9           |    [link](https://link-url-link.org)       |  |
 |  RS PRO Miniature Ball Bearing -3x10X4mm O.D   | 8       | £9           |    [link](https://link-url-link.org)       |  |
-| 25T Metal servo Circular Horn    | 4       | £5           |    [link](https://link-url-link.org)       |  |
-| 25T Metal RC Servo Arm Horn  | 4       | £5           |    [link](https://link-url-link.org)       |  |
+| 25T Metal Servo Circular Horn    | 4       | £5           |    [link](https://link-url-link.org)       |  |
+| 25T Metal Servo Arm Horn  | 4       | £5           |    [link](https://link-url-link.org)       |  |
 <br>
 
+
+<br>
+<br>
+
+# Electronics
+
+Yertle is controlled by an ESP-32s microcontroller and a Raspberry Pi 4 Single board computer. The robot can operate with just the ESP but will require a computer or phone with WiFi capable of running python3. The flow diagram Shows the general electronic connections and wiring 
+The current and voltage sensors are optional.
+
+![Yertle Diagram flow](https://user-images.githubusercontent.com/12387040/177245145-c20d1fc6-862a-4f38-909a-6146b7b7e857.png)
+  
 
 <br>
 <br>
@@ -103,9 +114,29 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 
 <br>
 
-## Frame:
+## Part1:
+Connect and wire electronics to the mounting plate. You can use cable ties to hold the SBEC and battery. I normally connect the esp on top of the pi by soldering a custom Pi hat board that also mounts the IMU.
+![image](https://user-images.githubusercontent.com/12387040/177247846-cfc5c834-6e8b-4745-9d76-c606543bca5a.png)
 
 <br>
 
-## Electronics:
+## Part2:
+Construct the frame with inner servos and electronics.
+![image](https://user-images.githubusercontent.com/12387040/177248519-6b8e5d40-a18e-4a59-8405-390a05a6b0cd.png)
+<br>
 
+## Part3:
+Construct the legs.
+![image](https://user-images.githubusercontent.com/12387040/177250145-c5ee9356-0b25-4144-842c-df5e74f91844.png)
+
+<br>
+
+## Part4:
+Connect electronics and zero the servos (before connecting legs).
+![image](https://user-images.githubusercontent.com/12387040/177250740-7c5629e7-9cad-4e7b-aead-6a167f0438b3.png)
+
+<br>
+
+## Part4:
+Connect legs and Shell.
+<img  align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;" src="https://user-images.githubusercontent.com/12387040/177191503-e122d730-9d83-4a72-aaf7-d9e7b08e673a.gif">
