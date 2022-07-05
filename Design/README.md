@@ -116,27 +116,32 @@ The current and voltage sensors are optional.
 
 ## Part1:
 Connect and wire electronics to the mounting plate. You can use cable ties to hold the SBEC and battery. I normally connect the esp on top of the pi by soldering a custom Pi hat board that also mounts the IMU.
+
 ![image](https://user-images.githubusercontent.com/12387040/177247846-cfc5c834-6e8b-4745-9d76-c606543bca5a.png)
 
 <br>
 
 ## Part2:
 Construct the frame with inner servos and electronics.
+
 ![image](https://user-images.githubusercontent.com/12387040/177248519-6b8e5d40-a18e-4a59-8405-390a05a6b0cd.png)
 <br>
 
 ## Part3:
 Construct the legs.
+
 ![image](https://user-images.githubusercontent.com/12387040/177250145-c5ee9356-0b25-4144-842c-df5e74f91844.png)
 
 <br>
 
 ## Part4:
 Connect electronics and zero the servos (before connecting legs).
+
 ![image](https://user-images.githubusercontent.com/12387040/177250740-7c5629e7-9cad-4e7b-aead-6a167f0438b3.png)
 
 <br>
 
-## Part4:
+## Part5:
 Connect legs and Shell.
+
 <img  align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;" src="https://user-images.githubusercontent.com/12387040/177191503-e122d730-9d83-4a72-aaf7-d9e7b08e673a.gif">
