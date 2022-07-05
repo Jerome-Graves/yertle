@@ -41,15 +41,15 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 ### Body Frame:
 | Item          | Quantity      | Link                             | Notes      |
 | ------------- | ------------- | -------------                    | ---------- |
-| Inner Shoulder Frame           | 2        | [link](Frame\Inner-Shoulder-Frame.stl)     |  no supports|
-| Outer Shoulder Frame           | 2        | [link](Outer\Outer-Shoulder-Frame.stl)     |  no supports|
-| Upper Shoulder Frame           | 2        | [link](Frame\Upper-Shoulder-Frame.stl)     |  no supports|
-| Lower Shoulder Frame           | 2        | [link](Frame\Lower-Shoulder-Frame.stl)     |  no supports|
-| Left Servo Mount          | 2        | [link](Frame\Left-Servo-Mount.stl)     |  no supports|
-| Right Servo Mount        | 2        | [link](Frame\Left-Servo-Mount.stl)     |  no supports|
-| Servo Mount Top Bracket  | 4        | [link](Frame\Servo-Mount-Top-Bracket.stl)     |  no supports|
-| Side Body beam           | 2        | [link](Frame\Side-Body-Beam.stl)     |  no supports|
-| Electronics Mounting Plate          | 1        | [link](Frame\Electronics-Mounting-Plate.stl)     |  no supports|
+| Inner Shoulder Frame           | 2        | [link](STL/Frame/Inner%20Shoulder%20Frame.stl)     |  no supports|
+| Outer Shoulder Frame           | 2        | [link](STL/Outer/Outer%20Shoulder%20Frame.stl)     |  no supports|
+| Upper Shoulder Frame           | 2        | [link](STL/Frame/Upper%20Shoulder%20Frame.stl)     |  no supports|
+| Lower Shoulder Frame           | 2        | [link](STL/Frame/Lower%20Shoulder%20Frame.stl)     |  no supports|
+| Left Servo Mount          | 2        | [link](STL/Frame/Left%20Servo%20Mount.stl)     |  no supports|
+| Right Servo Mount        | 2        | [link](STL/Frame/Left%20Servo%20Mount.stl)     |  no supports|
+| Servo Mount Top Bracket  | 4        | [link](STL/Frame/Servo%20Mount%20Top%20Bracket.stl)     |  no supports|
+| Side Body beam           | 2        | [link](STL/Frame/Side%20Body%20Beam.stl)     |  no supports|
+| Electronics Mounting Plate          | 1        | [link](STL/Frame/Electronics%20Mounting%20Plate.stl)     |  no supports|
 
 
 <br>
@@ -57,14 +57,14 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 ### Legs:
 | Item          | Quantity      | Link                             | Notes      |
 | ------------- | ------------- | -------------                    | ---------- |
-| Inner Tibia           | 4       | [link](Legs/Inner-Tibia.stl)     |  no supports|
-| Outer Tibia           | 4       | [link](Legs/Outer-Tibia.stl)     |  no supports|
-| Femur                 | 4       | [link](Legs/Femur.stl)     |  no supports|
-| Femur Servo Connector | 4       | [link](Legs/Femur-Servo-Connector.stl)     |  no supports|
-| Left Shoulder         | 2       | [link](Legs/Left-Shoulder.stl)     |  print in secondary colour |
-| Right Shoulder        | 2       | [link](Legs/Right-Shoulder.stl)     |  print in secondary colour |
-| Short Link           | 4        | [link](Legs/Short-Link.stl)     |   |
-| Long Link            | 4        | [link](Legs/Long-Link.stl)     |  |
+| Inner Tibia           | 4       | [link](STL/Legs/Inner%20Tibia.stl)     |  no supports|
+| Outer Tibia           | 4       | [link](STL/Legs/Outer%20Tibia.stl)     |  no supports|
+| Femur                 | 4       | [link](STL/Legs/Femur.stl)     |  no supports|
+| Femur Servo Connector | 4       | [link](STL/Legs/Femur%20Servo%20Connector.stl)     |  no supports|
+| Left Shoulder         | 2       | [link](STL/Legs/Left%20Shoulder.stl)     |  print in secondary colour |
+| Right Shoulder        | 2       | [link](STL/Legs/Right%20Shoulder.stl)     |  print in secondary colour |
+| Short Link           | 4        | [link](STL/Legs/Short%20Link.stl)     |   |
+| Long Link            | 4        | [link](STL/Legs/Long%20Link.stl)     |  |
 
 - - -
 
