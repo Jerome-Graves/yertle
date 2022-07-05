@@ -29,10 +29,10 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 
 | Item          | Quantity      | Link                             | Notes      |
 | ------------- | ------------- | -------------                    | ---------- |
-| Top Shell           | 1        | [link](Shell\Top-Shell.stl)     | print in secondary colour  |
-| Bottom Shell           | 1        | [link](Shell\Bottom-Shell.stl)     |print in secondary colour |
-| Front Shell          | 1        | [link](Shell\Front-Shell.stl)      |print in secondary colour  |
-| Back Shell          | 1        | [link](Shell\Back-Shell.stl)     | print in secondary colour |
+| Top Shell           | 1        | [link](Shell/Top-Shell.stl)     | print in secondary colour  |
+| Bottom Shell           | 1        | [link](Shell/Bottom-Shell.stl)     |print in secondary colour |
+| Front Shell          | 1        | [link](Shell/Front-Shell.stl)      |print in secondary colour  |
+| Back Shell          | 1        | [link](Shell/Back-Shell.stl)     | print in secondary colour |
 
 
 
