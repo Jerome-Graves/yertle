@@ -13,12 +13,13 @@
 <br>
 The robot consists of:
 
-* 4 limbs with 3 degrees of freedom powered by hobby servos, with a leg extension of approximately 25cm. 
+* 4 limbs with 3 degrees of freedom powered by hobby servos, with a leg extension of approximately 20cm.
 * A 5000mah battery (45 minutes of run time). 
 * A 9-axis accelerometer/gyro sensor. 
 * A current and voltage sensor.
 * A microcontroller (ESP32s) to communicate with Hardware and sensors.
 * A single-board computer (RPi4) to compute image, location, ROS and advanced controller algorithms.
+* 1.8 kg
 
 <br>
 This robot was inspired by the <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal</a>, <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a> and <a href="https://github.com/adham-elarabawy/open-quadruped">Open Quadruped</a>. The concept was to have the best parts of all designs and make it compatible with <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a> parts.
@@ -51,16 +52,48 @@ The current cost of the robot is around £250.
 
 ## Design:
 Click [here](Design/README.md) for 3D printer parts, assembly instructions and bill of materials.
+<br><br>
+Yertle is a mainly fusion of the leg design of <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal</a> and the body of <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a>. As such, you can use the control software and electronics from any Kangal or derivative with this robot (with a little modification). Any Modifications for the spot micro shell will also work with this robot. And You can exchange the legs for Kangal's if you want. 
+<br>
+<br>
+I have built a few quadruped robots and there are plenty of interesting leg mechanics to choose from. Overall The Kangal legs do have limitations. Such as their limited range in motion. But they do have the benefit of being extremely light and easy to change. This means I'm not pulling up anything heavy when I'm lifting my leg allowing the servos to be slightly faster when not under load. And I'm less worried about breaking them or putting the robot in a more extreme environment.
+<br>
+
+
+![image](https://user-images.githubusercontent.com/12387040/177250145-c5ee9356-0b25-4144-842c-df5e74f91844.png)
+<br>
+
+
 - - - 
 <br>
 
+## Electronics:
+Click [here](Design/README.md/#electronics) for an electronics and wiring explanation.
+<br><br>
+I'm currently working on a better description of my wiring. I have soldered a custom Hat from my RPi that had all the necessary components. The robot was originally designed to use just the RPi but I found it to be unreliable as it is more complex to reset the device and more prone to corruption. As The ESP32 has WiFi I can debug the device remotely without a complex startup/shut down routine.
+<br><br>
+If you are familiar with wiring  <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal</a> and the body of <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a>. You can use the same wiring.
+
+- - -
+<br>
+
+
+
 ## Software:
-Click [here](Software/README.md) for a software explanation.
+Click [here](Software/README.md) for the software.
+<br><br>
+The software runs in a master/slave system over the serial port or UPD over WiFi. The robot firmware acts as the slave. It controls all sensors, servos, computes the inverse kinematics of the robot and calculates safety limits. The main control system is written in Python3. It acts as a master It takes all data from the robot sensors and ROS(todo), generates the walk and sends this to the Slave.
+<br><br>
+The firmware was written in C++ using Arduino IDE so you can modify it to work on a different microcontroller if you want. 
+There Python Control software uses a GUI and can run on anything that has WiFi a screen and can run Python3, including android devices(not tested).
+<br><br>
+The software can also runs ROS nodes for ROS2 integration(todo).
+
 - - -
 <br>
 
 ## Simulation:
-Click [here](Simulation/README.md) for a simulation explanation (todo).
+Click [here](Simulation/README.md) for simulation tools (todo).
 - - -
 <br>
 

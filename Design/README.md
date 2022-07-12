@@ -1,6 +1,6 @@
 ![new yertle logo](https://user-images.githubusercontent.com/12387040/177182736-baa268a0-e6b8-4a5e-a758-1f791cb3d4f0.png)
 <p style=" display: block;margin-left: auto;margin-right: auto;text-align:center;">
-<a  href=""><img src="https://img.shields.io/badge/-.step-red?style=for-the-badge" /></a> <a href=""><img src="https://img.shields.io/badge/-.stl-yellow?style=for-the-badge" /></a> 
+<a  href=""><img src="https://img.shields.io/badge/-.step-red?style=for-the-badge" /></a> <a href=""><img src="https://img.shields.io/badge/-.stl-yellow?style=for-the-badge" /></a> <a href=""><img src="https://img.shields.io/badge/-.iges-green?style=for-the-badge" /></a>  
 </p>
 
 
@@ -11,6 +11,7 @@
 <p  style=" display: block;margin-left: auto;margin-right: auto;text-align:center;">
 <a href="#3d-printed-parts">3D Printed Parts</a><br>
 <a href="#bill-of-materials">B.O.M (Bill of Materials)</a><br>
+<a href="#electronics">Electronics</a><br>
 <a href="#assembly">Assembly</a><br>
 </p>
 
@@ -101,7 +102,7 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 
 # Electronics
 
-Yertle is controlled by an ESP-32s microcontroller and a Raspberry Pi 4 Single board computer. The robot can operate with just the ESP but will require a computer or phone with WiFi capable of running python3. The flow diagram Shows the general electronic connections and wiring 
+Yertle is controlled by an ESP-32s microcontroller and a Raspberry Pi 4 Single board computer. The robot can operate with just the ESP but will require a computer or phone with WiFi capable of running python3. The flow diagram shows the general electronic connections and wiring. 
 The current and voltage sensors are optional.
 
 ![Yertle Diagram flow](https://user-images.githubusercontent.com/12387040/177245145-c20d1fc6-862a-4f38-909a-6146b7b7e857.png)
