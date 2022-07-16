@@ -50,7 +50,7 @@ One task deals with WiFi and serial communication, while the other deals with I2
 <br>
 
 # Control Software
-This was written in <b>Python3</b> and uses the <b>tkLinter</b> library to generate a GUI to control the robot. It connects to the robot through either <b>Wifi</b> or <b>serial</b> communication. The robot sends sensor information and the control software generates the feet's position and sends it back to the robot in real-time.
+This was written in <b>Python3</b> and uses the <b>tkinter</b> library to generate a GUI to control the robot. It connects to the robot through either <b>Wifi</b> or <b>serial</b> communication. The robot sends sensor information and the control software generates the feet's position and sends it back to the robot in real-time.
 
 ![image](https://user-images.githubusercontent.com/12387040/178509729-ef203f87-d7fb-4c72-958f-4f88137b29f7.png)
 

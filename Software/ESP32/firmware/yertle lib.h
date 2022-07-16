@@ -9,7 +9,7 @@ extern struct PoseAngle {
   float lf_theta1 = 0.0;
   float lf_theta2 = 0.0;
   float lf_theta3 = 0.0;
-  float rf_theta1 = 0.0;
+  float rf_theta1 = 0.0; 
   float rf_theta2 = 0.0;
   float rf_theta3 = 0.0;
   float lb_theta1 = 0.0;
@@ -50,16 +50,16 @@ extern struct ImuConfig {
 
 extern struct PoseCartesian {  // Data type for cartesian pose xyz.
   float lf_x = -1.0;
-  float lf_y = 15.0;
+  float lf_y = 20.0;
   float lf_z = 0;
   float rf_x = -1.0;
-  float rf_y = 15.0;
+  float rf_y = 20.0;
   float rf_z = 0;
   float lb_x = -1.0;
-  float lb_y = 15.0;
+  float lb_y = 20.0;
   float lb_z = 0;
   float rb_x = -1.0;
-  float rb_y = 15.0;
+  float rb_y = 20.0;
   float rb_z = 0;
 } defalutPoseCartesian, poseCartesian;
 
@@ -144,20 +144,20 @@ private:
 
   struct ServoOffsets {
     float lf_theta1 = 0;
-    float lf_theta2 = 0.0;
+    float lf_theta2 = 80;
     float lf_theta3 = 0;
 
     float rf_theta1 = 70;
-    float rf_theta2 = -80;
-    float rf_theta3 = -50;
+    float rf_theta2 = -79;
+    float rf_theta3 = 0;
 
-    float lb_theta1 = 0;
-    float lb_theta2 = 0.0;
-    float lb_theta3 = 30;
+    float lb_theta1 = 54;
+    float lb_theta2 = -44;
+    float lb_theta3 = 66;
 
-    float rb_theta1 = 15;
-    float rb_theta2 = -50;
-    float rb_theta3 = -66;
+    float rb_theta1 = -64;
+    float rb_theta2 = -5;
+    float rb_theta3 = 0;
   } servoOffsets;
 };
 

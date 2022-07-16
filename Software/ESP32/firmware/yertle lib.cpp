@@ -147,7 +147,7 @@ void ServoClass::sendPWMData() {
   val[9] = ServoDriver.get_channel_value(servoId.rb_theta1);
   val[10] = ServoDriver.get_channel_value(servoId.rb_theta2);
   val[11] = ServoDriver.get_channel_value(servoId.rb_theta3);
-  //Serial.print("p " + val[0] + " " + val[1] + " " + val[2] + " " + val[3] + " " + val[4] + " " + val[5] + " " + val[6] + " " + val[7] + " " + val[8] + " " + val[9] + " " + val[10] + " " + val[11]);
+  Serial.print("PWM values: " + val[0] + " " + val[1] + " " + val[2] + " " + val[3] + " " + val[4] + " " + val[5] + " " + val[6] + " " + val[7] + " " + val[8] + " " + val[9] + " " + val[10] + " " + val[11]);
 }
 
 //Update fuctions for servos

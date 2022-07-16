@@ -8,12 +8,15 @@ import math
 import threading
 from simple_pid import PID
 import configparser
+import os
 
-filename = "config.ini"
+assert os.path.exists('config.ini')
 
 
 
+global robotMode 
 
+robotMode = False
 
 
 
@@ -143,12 +146,12 @@ class FileCommands:
         # Reading Data
         config = configparser.ConfigParser()
         config.read(filename)
-        app.gui.balancePidWindow.Slider1.set(float(config.get("PID_CONFIG","x_Kp" )))
-        app.gui.balancePidWindow.Slider2.set(float(config.get("PID_CONFIG","x_Ki" )))
-        app.gui.balancePidWindow.Slider3.set(float(config.get("PID_CONFIG","x_Kd" )))
-        app.gui.balancePidWindow.Slider4.set(float(config.get("PID_CONFIG","y_Kp" )))
-        app.gui.balancePidWindow.Slider5.set(float(config.get("PID_CONFIG","y_Ki" )))
-        app.gui.balancePidWindow.Slider6.set(float(config.get("PID_CONFIG","y_Kd" )))
+        app.gui.balancePidWindow.Slider1.set(float(config.get('PID_CONFIG',"x_Kp" )))
+        app.gui.balancePidWindow.Slider2.set(float(config.get('PID_CONFIG',"x_Ki" )))
+        app.gui.balancePidWindow.Slider3.set(float(config.get('PID_CONFIG',"x_Kd" )))
+        app.gui.balancePidWindow.Slider4.set(float(config.get('PID_CONFIG',"y_Kp" )))
+        app.gui.balancePidWindow.Slider5.set(float(config.get('PID_CONFIG',"y_Ki" )))
+        app.gui.balancePidWindow.Slider6.set(float(config.get('PID_CONFIG',"y_Kd" )))
        
 
     
@@ -156,43 +159,51 @@ class FileCommands:
 
 
 class GUICommands:
+    
     def showServoGUI():
+        global robotMode
         app.gui.balancePidWindow.hide()
         app.gui.servoAngleWindow.show()
         app.gui.bodyMoveWindow.hide()
         app.gui.footPositionWindow.hide()
         app.gui.gaitWindow.hide()
+        robotMode = False
 
     def showFootGUI():
+        global robotMode
         app.gui.balancePidWindow.hide()
         app.gui.servoAngleWindow.hide()
         app.gui.bodyMoveWindow.hide()
         app.gui.footPositionWindow.show()
         app.gui.gaitWindow.hide()
+        robotMode = False
 
     def showBodyGUI():
+        global robotMode
         app.gui.bodyMoveWindow.show()
         app.gui.balancePidWindow.hide()
         app.gui.servoAngleWindow.hide()
         app.gui.footPositionWindow.hide()
         app.gui.gaitWindow.hide()
+        robotMode = False
 
     def showBalanceGUI():
-        
+        global robotMode
         app.gui.bodyMoveWindow.hide()
         app.gui.balancePidWindow.show()
         app.gui.servoAngleWindow.hide()
         app.gui.footPositionWindow.hide()
         app.gui.gaitWindow.hide()
+        robotMode = True
 
     def showGaitGUI():
-        
+        global robotMode
         app.gui.bodyMoveWindow.hide()
         app.gui.balancePidWindow.hide()
         app.gui.servoAngleWindow.hide()
         app.gui.footPositionWindow.hide()
         app.gui.gaitWindow.show()
-        
+        robotMode = True
 
 global parentWindow
 
@@ -216,7 +227,9 @@ class YertleApp:
         udp_thread.start()
             
         pid_thread = threading.Thread(target=self.PidY.threadFunction, args=(1,))
-        pid_thread.start() 
+        pid_thread.start()
+        
+
 
 class GUI:
         def __init__(self,parent):
@@ -424,16 +437,16 @@ class GUI:
                 self.slider_label1 = ttk.Label(self.frm_servoAngles,text='Left Front Leg Angles:')
                 self.slider_label1.grid(row=0, column=0, sticky="nsew")
 
-                self. slider1 = tk.Scale(self.frm_servoAngles,from_=-45,to=45,orient='horizontal',resolution=1)
-                self.slider1.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider1 = tk.Scale(self.frm_servoAngles,from_=-45,to=45,orient='horizontal',resolution=1)
+                self.slider1.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider1.grid(row=1, column=0, sticky="nsew")
 
                 self.slider2 = tk.Scale(self.frm_servoAngles,from_=-90,to=20,orient='horizontal',resolution=1)
-                self.slider2.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider2.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider2.grid(row=2, column=0, sticky="nsew")
 
                 self. slider3 = tk.Scale(self.frm_servoAngles,from_=13,to=90,orient='horizontal',resolution=1)
-                self.slider3.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider3.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider3.grid(row=3, column=0, sticky="nsew")
 
 
@@ -442,15 +455,15 @@ class GUI:
                 self.slider_label2.grid(row=0, column=1, sticky="nsew")
 
                 self.slider4 = tk.Scale(self.frm_servoAngles,from_=-45,to=45,orient='horizontal',resolution=1)
-                self.slider4.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider4.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider4.grid(row=1, column=1, sticky="nsew")
 
                 self.slider5 = tk.Scale(self.frm_servoAngles,from_=-90,to=20,orient='horizontal',resolution=1)
-                self.slider5.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider5.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider5.grid(row=2, column=1, sticky="nsew")
 
                 self.slider6 = tk.Scale(self.frm_servoAngles,from_=13,to=90,orient='horizontal',resolution=1)
-                self.slider6.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider6.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider6.grid(row=3, column=1, sticky="nsew")
 
 
@@ -458,15 +471,15 @@ class GUI:
                 self.slider_label3.grid(row=4, column=0, sticky="nsew")
 
                 self.slider7 = tk.Scale(self.frm_servoAngles,from_=-45,to=45,orient='horizontal',resolution=1)
-                self.slider7.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider7.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider7.grid(row=5, column=0, sticky="nsew")
 
                 self.slider8 = tk.Scale(self.frm_servoAngles,from_=-90,to=20,orient='horizontal',resolution=1)
-                self.slider8.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider8.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider8.grid(row=6, column=0, sticky="nsew")
 
                 self.slider9 = tk.Scale(self.frm_servoAngles,from_=13,to=90,orient='horizontal',resolution=1)
-                self.slider9.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider9.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider9.grid(row=7, column=0, sticky="nsew")
 
 
@@ -474,15 +487,15 @@ class GUI:
                 self.slider_label4.grid(row=4, column=1, sticky="nsew")
 
                 self.slider10 = tk.Scale(self.frm_servoAngles,from_=-45,to=45,orient='horizontal',resolution=1)
-                self.slider10.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider10.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider10.grid(row=5, column=1, sticky="nsew")
 
                 self.slider11 = tk.Scale(self.frm_servoAngles,from_=-90,to=20,orient='horizontal',resolution=1)
-                self.slider11.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider11.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider11.grid(row=6, column=1, sticky="nsew")
 
                 self.slider12 = tk.Scale(self.frm_servoAngles,from_=13,to=90,orient='horizontal',resolution=1)
-                self.slider12.bind("<ButtonRelease-1>",YerlteCommands.writeAngles)
+                self.slider12.bind("<ButtonRelease-1>",YerlteCommands.writeAnglesButton)
                 self.slider12.grid(row=7, column=1, sticky="nsew")
 
                 #self.frm_servoAngles.grid(row=1, column=1,sticky="nsew",rowspan=2)
@@ -705,16 +718,17 @@ class GUI:
 
 class YerlteCommands:
     #send angles over serial data
-    def writeAnglesButton():
-        output = "a "#+str(slider1.get())+" "+str(slider2.get())+" "+str(slider3.get())+" "+str(slider4.get())+" "+str(slider5.get())+" "+str(slider6.get())+" "+str(slider7.get())+" "+str(slider8.get())+" "+str(slider9.get())+" "+str(slider10.get())+" "+str(slider11.get())+" "+str(slider12.get())+ "\n"
+    def writeAnglesButton(self):
+        output = "a " + str(app.gui.servoAngleWindow.slider1.get())+" "+str(app.gui.servoAngleWindow.slider2.get())+" "+str(app.gui.servoAngleWindow.slider3.get())+" "+str(app.gui.servoAngleWindow.slider4.get())+" "+str(app.gui.servoAngleWindow.slider5.get())+" "+str(app.gui.servoAngleWindow.slider6.get())+" "+str(app.gui.servoAngleWindow.slider7.get())+" "+str(app.gui.servoAngleWindow.slider8.get())+" "+str(app.gui.servoAngleWindow.slider9.get())+" "+str(app.gui.servoAngleWindow.slider10.get())+" "+str(app.gui.servoAngleWindow.slider11.get())+" "+str(app.gui.servoAngleWindow.slider12.get())+ "\n"
         if dataActive.get()== "1":
             app.SerialY.writeSerial(output)
             app.UdpY.send(output)             
+    
     def writeAngles(self,a):
         YerlteCommands.writeAnglesButton()
         
     #send feet positions over serial data
-    def writeFootPositionButton():
+    def writeFootPositionButton(a):
         output ="f "#+str(fPosSlider1.get())+" "+str(fPosSlider2.get())+" "+str(fPosSlider3.get())+" "+str(fPosSlider4.get())+" "+str(fPosSlider5.get())+" "+str(fPosSlider6.get())+" "+str(fPosSlider7.get())+" "+str(fPosSlider8.get())+" "+str(fPosSlider9.get())+" "+str(fPosSlider10.get())+" "+str(fPosSlider11.get())+" "+str(fPosSlider12.get())+ "\n"
         if dataActive.get()== "1":
             app.SerialY.writeSerial(output)
@@ -897,7 +911,7 @@ class YertlePid:
 
             
         def threadFunction(self,input):
-            
+            global robotMode
             
             self.ImuPidX.tunings = (0.23, 0.01, 0.0)
             self.ImuPidX.output_limits = (-45, 45)
@@ -906,47 +920,53 @@ class YertlePid:
             self.ImuPidY.output_limits = (-35, 35)
 
             while True:
-                if (self.moveCount >=360):
-                    self.moveCount = 0
+
+                if (robotMode == True): 
+                    if (self.moveCount >=360):
+                        self.moveCount = 0
+                    else:
+                        self.moveCount = self.moveCount + self.parent.gui.gaitWindow.Slider1.get()
+
+                        self.gaitCalc(self.moveCount)
+
+                    self.parent.gui.balancePidWindow.rawX.set(rotDataZ)
+                    self.parent.gui.balancePidWindow.rawY.set(rotDataY)
+
+                    xval = round(self.ImuPidX(float(rotDataZ)),2)
+                    yval = round(self.ImuPidY(float(rotDataY)),2)
+
+
+                    self.writeBodyTranslationTick(0,-yval,-xval)
+
+                    self.parent.gui.balancePidWindow.outputX.set(round(xval,1))
+                    self.parent.gui.balancePidWindow.outputY.set(round(yval,1))
+
+                    time.sleep(0.025)
                 else:
-                    self.moveCount = self.moveCount + self.parent.gui.gaitWindow.Slider1.get()
-                self.gaitCalc(self.moveCount)
-
-                self.parent.gui.balancePidWindow.rawX.set(rotDataZ)
-                self.parent.gui.balancePidWindow.rawY.set(rotDataY)
-                
-                xval = round(self.ImuPidX(float(rotDataZ)),2)
-                yval = round(self.ImuPidY(float(rotDataY)),2)
-
-                #xval =clamp(xval,-30,30)
-
-                self.writeBodyTranslationTick(0,-yval,-xval)
-                self.parent.gui.balancePidWindow.outputX.set(round(xval,1))
-                self.parent.gui.balancePidWindow.outputY.set(round(yval,1))
-                time.sleep(0.025)
+                    time.sleep(0.5)
 
         def writeBodyTranslationTick(self,thetaX,thetaY,thetaZ):
             x =  0
-            y =  -0.5
+            y =  5
             z =  0
             bodyLength = 23
             bodyWidth = 10
-
-            lf_x =  x - ((15+y) * math.sin(thetaY * math.pi / 180)) + self.lf_gaitOffset[0]
+            bodyHeight = 18
+            lf_x =  x - ((bodyHeight+y) * math.sin(thetaY * math.pi / 180)) + self.lf_gaitOffset[0]
             lf_y =  y + (0.5 * bodyWidth * math.tan(thetaZ* math.pi / 180)) + (0.5 * bodyLength * math.tan(thetaY* math.pi / 180)) - (0.5 * bodyWidth * math.tan(thetaX* math.pi / 180))  + self.lf_gaitOffset[1]
-            lf_z =  z - ((15+y) * math.sin(thetaZ * math.pi / 180)) + ((15+y) * math.sin(thetaX * math.pi / 180))  + self.lf_gaitOffset[2]
+            lf_z =  z - ((bodyHeight+y) * math.sin(thetaZ * math.pi / 180)) + ((bodyHeight+y) * math.sin(thetaX * math.pi / 180))  + self.lf_gaitOffset[2]
 
-            rf_x =  x - ((15+y) * math.sin(thetaY * math.pi / 180)) + self.rf_gaitOffset[0]
+            rf_x =  x - ((bodyHeight+y) * math.sin(thetaY * math.pi / 180)) + self.rf_gaitOffset[0]
             rf_y =  y - (0.5 * bodyWidth * math.tan(thetaZ* math.pi / 180)) + (0.5 * bodyLength * math.tan(thetaY* math.pi / 180)) + (0.5 * bodyWidth * math.tan(thetaX* math.pi / 180))  + self.rf_gaitOffset[1]
-            rf_z =  z - ((15+y) * math.sin(thetaZ * math.pi / 180)) + ((15+y) * math.sin(thetaX * math.pi / 180))  + self.rf_gaitOffset[2]
+            rf_z =  z - ((bodyHeight+y) * math.sin(thetaZ * math.pi / 180)) + ((bodyHeight+y) * math.sin(thetaX * math.pi / 180))  + self.rf_gaitOffset[2]
 
-            lb_x =  x - ((15+y) * math.sin(thetaY * math.pi / 180)) + self.lb_gaitOffset[0]
+            lb_x =  x - ((bodyHeight+y) * math.sin(thetaY * math.pi / 180)) + self.lb_gaitOffset[0]
             lb_y =   y + (0.5 * bodyWidth * math.tan(thetaZ* math.pi / 180)) - (0.5 * bodyLength * math.tan(thetaY* math.pi / 180)) + (0.5 * bodyWidth * math.tan(thetaX* math.pi / 180))   + self.lb_gaitOffset[1]
-            lb_z =  z - ((15+y) * math.sin(thetaZ * math.pi / 180)) - ((15+y) * math.sin(thetaX * math.pi / 180))  + self.lb_gaitOffset[2]
+            lb_z =  z - ((bodyHeight+y) * math.sin(thetaZ * math.pi / 180)) - ((bodyHeight+y) * math.sin(thetaX * math.pi / 180))  + self.lb_gaitOffset[2]
 
-            rb_x =  x - ((15+y) * math.sin(thetaY * math.pi / 180)) + self.rb_gaitOffset[0]
+            rb_x =  x - ((bodyHeight+y) * math.sin(thetaY * math.pi / 180)) + self.rb_gaitOffset[0]
             rb_y =  y - (0.5 * bodyWidth * math.tan(thetaZ* math.pi / 180)) - (0.5 * bodyLength * math.tan(thetaY* math.pi / 180)) - (0.5 * bodyWidth * math.tan(thetaX* math.pi / 180)) + self.rb_gaitOffset[1]
-            rb_z =  z - ((15+y) * math.sin(thetaZ * math.pi / 180)) - ((15+y) * math.sin(thetaX * math.pi / 180))  + self.rb_gaitOffset[2]
+            rb_z =  z - ((bodyHeight+y) * math.sin(thetaZ * math.pi / 180)) - ((bodyHeight+y) * math.sin(thetaX * math.pi / 180))  + self.rb_gaitOffset[2]
             output =("f "   +str(round(lf_x,1))+" "
                             +str(round(lf_y,1))+" "
                             +str(round(lf_z,1))+" "
