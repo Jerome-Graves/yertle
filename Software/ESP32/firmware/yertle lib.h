@@ -143,20 +143,20 @@ private:
   } defaultDirection;
 
   struct ServoOffsets {
-    float lf_theta1 = 0;
-    float lf_theta2 = 80;
+    float lf_theta1 = -62;
+    float lf_theta2 = 9;
     float lf_theta3 = 0;
 
-    float rf_theta1 = 70;
-    float rf_theta2 = -79;
+    float rf_theta1 = 17;
+    float rf_theta2 = -144;
     float rf_theta3 = 0;
 
-    float lb_theta1 = 54;
-    float lb_theta2 = -44;
+    float lb_theta1 = -45;
+    float lb_theta2 = -88;
     float lb_theta3 = 66;
 
-    float rb_theta1 = -64;
-    float rb_theta2 = -5;
+    float rb_theta1 = -116;
+    float rb_theta2 = -66;
     float rb_theta3 = 0;
   } servoOffsets;
 };
