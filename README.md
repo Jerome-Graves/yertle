@@ -45,8 +45,7 @@ The current cost of the robot is around £250.
 <img   align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:800px;border: 5px solid grey;border-radius:20%;
 " src="https://media3.giphy.com/media/KFjNRAheWcB1mYteqC/giphy.gif?cid=790b76110cd3a428966bd2091bdf12e668c3ea9aa077822a&rid=giphy.gif&ct=g">
 
-<img   style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
-" src="https://media2.giphy.com/media/ohLg4XAOlwop26fHhG/giphy.gif?cid=790b7611812c3d0172f0034f1dc05768a8a9239421e02847&rid=giphy.gif&ct=g">
+![giphy](https://user-images.githubusercontent.com/12387040/181996342-a18e718f-6d4d-4c5a-8da0-526d0404262c.gif)
 
 
 - - -
