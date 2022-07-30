@@ -67,7 +67,7 @@ ServoClass::ServoClass() {
 
 void ServoClass::start() {  // Start the servo driver
   if (ServoDriver.begin()) {
-    ServoDriver.init(1500);
+    ServoDriver.init(200);
     //Serial.println("  Configured FaBo ServoDriver I2C Brick");  // <--  bug with laptop library (int casting to byte?)
   } else {
     //Serial.println("  FaBo 9Axis I2C Brick failed.");
