@@ -5,20 +5,21 @@
 <p align="center" >
 <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" /> 
 <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" /> 
+<!--
 <img src="https://img.shields.io/badge/ros-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white" /> 
 <img src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white" /></p>
-
+-->
 <img  align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;" src="https://user-images.githubusercontent.com/12387040/177191503-e122d730-9d83-4a72-aaf7-d9e7b08e673a.gif">
 
 <br>
 The robot consists of:
 
 * 4 limbs with 3 degrees of freedom powered by hobby servos, with a leg extension of approximately 20cm.
-* A 5000mah battery (45 minutes of run time). 
-* A 9-axis accelerometer/gyro sensor. 
-* A current and voltage sensor.
+* A 5000mah battery - 30 minutes of run time (optional). 
+* A 9-axis accelerometer/gyro sensor. (optional)
+* A current and voltage sensor. (optional)
 * A microcontroller (ESP32s) to communicate with Hardware and sensors.
-* A single-board computer (RPi4) to compute image, location, ROS and advanced controller algorithms.
+* A single-board computer (RPi4) to compute image, location, ROS and advanced controller algorithms. (optional)
 * 1.8 kg
 
 <br>
@@ -44,7 +45,8 @@ The current cost of the robot is around £250.
 " src="https://media3.giphy.com/media/KFjNRAheWcB1mYteqC/giphy.gif?cid=790b76110cd3a428966bd2091bdf12e668c3ea9aa077822a&rid=giphy.gif&ct=g">
 
 <img   style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
-" src="https://media0.giphy.com/media/11GzEkS1TQJCkdmxBD/giphy.gif?cid=790b7611434c394204cfbd1d88a35720a67b6308b0162ed2&rid=giphy.gif&ct=g">
+" src="https://media3.giphy.com/media/xXtRQbliZUGRo1vQLC/giphy.gif?cid=790b7611cdedcfc0c1bb83f0d3bb91f8a18613cc27d04cef&rid=giphy.gif&ct=g">
+
 
 - - -
 
@@ -53,7 +55,7 @@ The current cost of the robot is around £250.
 ## Design:
 Click [here](Design/README.md) for 3D printer parts, assembly instructions and bill of materials.
 <br><br>
-Yertle is a mainly fusion of the leg design of <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal</a> and the body of <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a>. As such, you can use the control software and electronics from any Kangal or derivative with this robot (with a little modification). Any Modifications for the spot micro shell will also work with this robot. And You can exchange the legs for Kangal's if you want. 
+Yertle is a  fusion of the leg design of <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal</a> and the body of <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a>. As such, you can use the control software and electronics from any Kangal or derivative with this robot (with a little modification). Any Modifications for the spot micro shell will also work with this robot. And You can exchange the legs for Kangal's if you want. 
 <br>
 <br>
 I have built a few quadruped robots and there are plenty of interesting leg mechanics to choose from. Overall The Kangal legs do have limitations. Such as their limited range in motion. But they do have the benefit of being extremely light and easy to change. This means I'm not pulling up anything heavy when I'm lifting my leg allowing the servos to be slightly faster when not under load. And I'm less worried about breaking them or putting the robot in a more extreme environment.
@@ -93,7 +95,11 @@ The software can also runs ROS nodes for ROS2 integration(todo).
 <br>
 
 ## Simulation:
-Click [here](Simulation/README.md) for simulation tools (todo).
+Click [here](Simulation/README.md) for simulation tools.<br><br>
+There is a simulation built into the python software. It enables you to test movement with the controller without a robot. 
+<br><br>
+<img   style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
+" src="https://media4.giphy.com/media/n3Z5qsrYJxJJMqyYtR/giphy.gif?cid=790b76111312ba6e427509258eeacdafe06fd2e38f7f575e&rid=giphy.gif&ct=g">
 - - -
 <br>
 
@@ -104,12 +110,3 @@ Click [here](Simulation/README.md) for simulation tools (todo).
 ## To Do
 
 *  ROS integration
-*  Simulation ([#5][i5])
-
-
-[i1]: https://github.com/Jerome-Graves/yertle/issues/1
-[i2]: https://github.com/Jerome-Graves/yertle/issues/2
-[i3]: https://github.com/Jerome-Graves/yertle/issues/3
-[i4]: https://github.com/Jerome-Graves/yertle/issues/4
-[i5]: https://github.com/Jerome-Graves/yertle/issues/5
-[i6]: https://github.com/Jerome-Graves/yertle/issues/6

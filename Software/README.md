@@ -24,7 +24,7 @@ There are 2 options for controlling the robot. You can run The python GUI script
 
 # WiFi
 
-
+There are a few references to IP addresses in the code. You will have to modify them in the python and the .ino file.  I am working on making this easier.
 <br><br>
 The robot will want to connect to WiFi when it starts.
 The default login detail are: <br>
