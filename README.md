@@ -9,6 +9,7 @@
 <img src="https://img.shields.io/badge/ros-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white" /> 
 <img src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white" /></p>
 -->
+<br>
 <img  align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;" src="https://user-images.githubusercontent.com/12387040/177191503-e122d730-9d83-4a72-aaf7-d9e7b08e673a.gif">
 
 <br>
@@ -45,7 +46,7 @@ The current cost of the robot is around £250.
 " src="https://media3.giphy.com/media/KFjNRAheWcB1mYteqC/giphy.gif?cid=790b76110cd3a428966bd2091bdf12e668c3ea9aa077822a&rid=giphy.gif&ct=g">
 
 <img   style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
-" src="https://media3.giphy.com/media/xXtRQbliZUGRo1vQLC/giphy.gif?cid=790b7611cdedcfc0c1bb83f0d3bb91f8a18613cc27d04cef&rid=giphy.gif&ct=g">
+" src="https://media2.giphy.com/media/ohLg4XAOlwop26fHhG/giphy.gif?cid=790b7611812c3d0172f0034f1dc05768a8a9239421e02847&rid=giphy.gif&ct=g">
 
 
 - - -
