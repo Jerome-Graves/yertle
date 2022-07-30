@@ -94,6 +94,7 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 |  RS PRO Miniature Ball Bearing -3x10X4mm O.D   | 8       | £9           |    [link](https://link-url-link.org)       |  |
 | 25T Metal Servo Circular Horn    | 4       | £5           |    [link](https://link-url-link.org)       |  |
 | 25T Metal Servo Arm Horn  | 4       | £5           |    [link](https://link-url-link.org)       |  |
+| Sleeve Bearing 3mm Bore x 5mm OD x 5mm | 30       | £15           |    [link](https://link-url-link.org)       |  |
 <br>
 
 
