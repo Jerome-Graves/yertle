@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<robot name="Dog">
+	<material name="blue">
+		<color rgba="0 0 0.8 1" />
+	</material>
+	<material name="yellow">
+		<color rgba="1 1 0 1" />
+	</material>
+	<material name="green">
+		<color rgba="0 0.85 0 1" />
+	</material>
+	<material name="black">
+		<color rgba="0.3 0.3 0.3 1" />
+	</material>
+	<material name="grey">
+		<color rgba="0.6 0.6 0.5 1" />
+	</material>
+	<link name="base_link">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\frame.obj" />
+			</geometry>
+			<origin rpy="0 0 3.141" xyz="0 0 0.0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="1.5" />
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+		</inertial>
+	</link>
+	<!-- shell -->
+	<link name="frame">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\shell.obj" />
+			</geometry>
+			<origin rpy="0 0 3.141" xyz="0 0 0" />
+			<material name="green" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+		<collision>
+			<geometry>
+				<mesh filename="Simulation\URDF\shell.obj" />
+			</geometry>
+			<origin rpy="0 0 3.141" xyz="0 0 0.0" />
+		</collision>
+	</link>
+	<joint name="base_to_frame" type="fixed">
+		<parent link="base_link" />
+		<child link="frame" />
+		<origin xyz="0 0 0" />
+	</joint>
+	<!-- lf shoulder -->
+	<link name="lf_shoulder">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\lf shoulder.obj" />
+			</geometry>
+			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+	</link>
+	<joint name="lf_shoulder" type="continuous">
+		<parent link="base_link" />
+		<child link="lf_shoulder" />
+		<origin xyz="0.090 0.037 0" />
+		<axis xyz="1 0 0" />
+	</joint>
+	<link name="lf_thigh">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\femur.obj" />
+			</geometry>
+			<origin rpy="1.5708 0 1.5708" xyz="0 0 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+	</link>
+	<joint name="lf_thigh" type="continuous">
+		<parent link="lf_shoulder" />
+		<child link="lf_thigh" />
+		<origin xyz="0.025 0.027 0 " />
+		<axis xyz="0 1 0" />
+	</joint>
+	<link name="lf_shin">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\tibia.obj" />
+			</geometry>
+			<origin rpy="0.610865 0 -1.5708" xyz="0 0.008 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+		<collision>
+			<geometry>
+				<mesh filename="Simulation\URDF\tibia.obj" />
+			</geometry>
+			<origin rpy="0.610865 0 -1.5708" xyz="0 0.008 0" />
+		</collision>
+	</link>
+	<joint name="lf_shin" type="continuous">
+		<parent link="lf_thigh" />
+		<child link="lf_shin" />
+		<origin xyz="0 0 -0.130 " />
+		<axis xyz="0 1 0" />
+	</joint>
+	<!-- rf shoulder -->
+	<link name="rf_shoulder">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\rf shoulder.obj" />
+			</geometry>
+			<origin rpy="0 0 3.141" xyz="0 0 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+	</link>
+	<joint name="rf_shoulder" type="continuous">
+		<parent link="base_link" />
+		<child link="rf_shoulder" />
+		<origin xyz="0.090 -0.040 0" />
+		<axis xyz="1 0 0" />
+	</joint>
+	<link name="rf_thigh">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\femur.obj" />
+			</geometry>
+			<origin rpy="4.71239 3.141 1.5708" xyz="0 0 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+	</link>
+	<joint name="rf_thigh" type="continuous">
+		<parent link="rf_shoulder" />
+		<child link="rf_thigh" />
+		<origin xyz="0.025 -0.027 0 " />
+		<axis xyz="0 1 0" />
+	</joint>
+	<link name="rf_shin">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\tibia.obj" />
+			</geometry>
+			<origin rpy="0.610865 0 -1.5708" xyz="0 -0.0045 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+		<collision>
+			<geometry>
+				<mesh filename="Simulation\URDF\tibia.obj" />
+			</geometry>
+			<origin rpy="0.610865 0 -1.5708" xyz="0 -0.007 0" />
+		</collision>
+	</link>
+	<joint name="rf_shin" type="continuous">
+		<parent link="rf_thigh" />
+		<child link="rf_shin" />
+		<origin xyz="0 0 -0.130 " />
+		<axis xyz="0 1 0" />
+	</joint>
+	<!-- lb shoulder -->
+	<link name="lb_shoulder">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\lb shoulder.obj" />
+			</geometry>
+			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+	</link>
+	<joint name="lb_shoulder" type="continuous">
+		<parent link="base_link" />
+		<child link="lb_shoulder" />
+		<origin xyz="-0.081 0.038 0" />
+		<axis xyz="1 0 0" />
+	</joint>
+	<link name="lb_thigh">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\femur.obj" />
+			</geometry>
+			<origin rpy="1.5708 0 1.5708" xyz="0 0 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+	</link>
+	<joint name="lb_thigh" type="continuous">
+		<parent link="lb_shoulder" />
+		<child link="lb_thigh" />
+		<origin xyz="-0.043 0.027 0 " />
+		<axis xyz="0 1 0" />
+	</joint>
+	<link name="lb_shin">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\tibia.obj" />
+			</geometry>
+			<origin rpy="0.610865 0 -1.5708" xyz="0 0.008 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+		<collision>
+			<geometry>
+				<mesh filename="Simulation\URDF\tibia.obj" />
+			</geometry>
+			<origin rpy="0.610865 0 -1.5708" xyz="0 0.008 0" />
+		</collision>
+	</link>
+	<joint name="lb_shin" type="continuous">
+		<parent link="lb_thigh" />
+		<child link="lb_shin" />
+		<origin xyz="0 0 -0.130 " />
+		<axis xyz="0 1 0" />
+	</joint>
+	<!-- rb arm -->
+	<link name="rb_shoulder">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\rb shoulder.obj" />
+			</geometry>
+			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+	</link>
+	<joint name="rb_shoulder" type="continuous">
+		<parent link="base_link" />
+		<child link="rb_shoulder" />
+		<origin xyz="-0.081 -0.040 0" />
+		<axis xyz="1 0 0" />
+	</joint>
+	<link name="rb_thigh">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\femur.obj" />
+			</geometry>
+			<origin rpy="4.71239 3.141 1.5708" xyz="0 0 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+	</link>
+	<joint name="rb_thigh" type="continuous">
+		<parent link="rb_shoulder" />
+		<child link="rb_thigh" />
+		<origin xyz="-0.043 -0.027 0 " />
+		<axis xyz="0 1 0" />
+	</joint>
+	<link name="rb_shin">
+		<visual>
+			<geometry>
+				<mesh filename="Simulation\URDF\tibia.obj" />
+			</geometry>
+			<origin rpy="0.610865 0 -1.5708" xyz="0 -0.0045 0" />
+			<material name="black" />
+		</visual>
+		<inertial>
+			<mass value="0.025" />
+			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+		</inertial>
+		<collision>
+			<geometry>
+				<mesh filename="Simulation\URDF\tibia.obj" />
+			</geometry>
+			<origin rpy="0.610865 0 -1.5708" xyz="0 -0.007 0" />
+		</collision>
+	</link>
+	<joint name="rb_shin" type="continuous">
+		<parent link="rb_thigh" />
+		<child link="rb_shin" />
+		<origin xyz="0 0 -0.130 " />
+		<axis xyz="0 1 0" />
+	</joint>
+</robot>
