@@ -87,7 +87,7 @@ Click [here](Software/README.md) for the software.
 The software runs in a master/slave system over the serial port or UPD over WiFi. The robot firmware acts as the slave. It controls all sensors, servos, computes the inverse kinematics of the robot and calculates safety limits. The main control system is written in Python3. It acts as a master It takes all data from the robot sensors and ROS(todo), generates the walk and sends this to the Slave.
 <br><br>
 The firmware was written in C++ using Arduino IDE so you can modify it to work on a different microcontroller if you want. 
-There Python Control software uses a GUI and can run on anything that has WiFi a screen and can run Python3, including android devices(not tested).
+The Python Control software uses a GUI and can run on anything that has WiFi, a screen and can run Python3, including android devices(not tested).
 <br><br>
 The software can also runs ROS nodes for ROS2 integration(todo).
 
