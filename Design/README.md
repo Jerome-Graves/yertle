@@ -91,7 +91,7 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 | 7.4V 2S 5000mAh 50C LiPo Battery | 1          | £30           |    [link](https://link-url-link.org)       | this can be smaller if you want less weight/cost |
 | Miniature Ball Bearings 5x16x5mm   | 4       | £3           |    [link](https://link-url-link.org)       | |
 |  Deep Groove Ball Bearings 25x37x7mm   | 4       | £9           |    [link](https://link-url-link.org)       |  |
-|  RS PRO Miniature Ball Bearing -3x10X4mm O.D   | 8       | £9           |    [link](https://link-url-link.org)       |  |
+|  RS PRO Miniature Ball Bearing 3x13X5mm  | 8       | £9           |    [link](https://link-url-link.org)       |  |
 | 25T Metal Servo Circular Horn    | 4       | £5           |    [link](https://link-url-link.org)       |  |
 | 25T Metal Servo Arm Horn  | 4       | £5           |    [link](https://link-url-link.org)       |  |
 | Sleeve Bearing 3mm Bore x 5mm OD x 5mm | 30       | £15           |    [link](https://link-url-link.org)       |  |
