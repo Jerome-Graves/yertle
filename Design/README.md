@@ -89,6 +89,7 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 | (Raspberry Pi 4B)          | 1           | £50           |    [link](https://link-url-link.org)       | This is optional, The robot can uses remote device.  |
 | PCA9685 Servo Driver         | 1          | £4           |    [link](https://link-url-link.org)       |  |
 | 7.4V 2S 5000mAh 50C LiPo Battery | 1          | £30           |    [link](https://link-url-link.org)       | this can be smaller if you want less weight/cost |
+| SBEC 6V 20A | 1          | £20           |    [link](https://link-url-link.org)       | |
 | Miniature Ball Bearings 5x16x5mm   | 4       | £3           |    [link](https://link-url-link.org)       | |
 |  Deep Groove Ball Bearings 25x37x7mm   | 4       | £9           |    [link](https://link-url-link.org)       |  |
 |  RS PRO Miniature Ball Bearing 3x13X5mm  | 8       | £9           |    [link](https://link-url-link.org)       |  |
