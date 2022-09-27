@@ -43,7 +43,7 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 | Item          | Quantity      | Link                             | Notes      |
 | ------------- | ------------- | -------------                    | ---------- |
 | Inner Shoulder Frame           | 2        | [link](STL/Frame/Inner%20Shoulder%20Frame.stl)     |  no supports|
-| Outer Shoulder Frame           | 2        | [link](STL/Outer/Outer%20Shoulder%20Frame.stl)     |  no supports|
+| Outer Shoulder Frame           | 2        | [link](STL/Frame/Outer%20Shoulder%20Frame.stl)     |  no supports|
 | Upper Shoulder Frame           | 2        | [link](STL/Frame/Upper%20Shoulder%20Frame.stl)     |  no supports|
 | Lower Shoulder Frame           | 2        | [link](STL/Frame/Lower%20Shoulder%20Frame.stl)     |  no supports|
 | Left Servo Mount          | 2        | [link](STL/Frame/Left%20Servo%20Mount.stl)     |  no supports|
@@ -58,10 +58,10 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 ### Legs:
 | Item          | Quantity      | Link                             | Notes      |
 | ------------- | ------------- | -------------                    | ---------- |
-| Inner Tibia           | 4       | [link](STL/Legs/Inner%20Tibia.stl)     |  no supports|
-| Outer Tibia           | 4       | [link](STL/Legs/Outer%20Tibia.stl)     |  no supports|
-| Femur                 | 4       | [link](STL/Legs/Femur.stl)     |  no supports|
-| Femur Servo Connector | 4       | [link](STL/Legs/Femur%20Servo%20Connector.stl)     |  no supports|
+| Inner Tibia           | 4       | [link](STL/Legs/Inner%20Tibia.stl)     | |
+| Outer Tibia           | 4       | [link](STL/Legs/Outer%20Tibia.stl)     | |
+| Femur                 | 4       | [link](STL/Legs/Femur.stl)     | |
+| Femur Servo Connector | 4       | [link](STL/Legs/Femur%20Servo%20Connector.stl)     | high infill|
 | Left Shoulder         | 2       | [link](STL/Legs/Left%20Shoulder.stl)     |  print in secondary colour |
 | Right Shoulder        | 2       | [link](STL/Legs/Right%20Shoulder.stl)     |  print in secondary colour |
 | Short Link           | 4        | [link](STL/Legs/Short%20Link.stl)     |   |
@@ -81,21 +81,21 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 # Bill of Materials:
 | Item          | Quantity      | Cost          | Link          | Notes      |
 | ------------- | ------------- | ------------- | ------------- | ---------- |
-| PLA           | 1Kg           | £19           |    [link](https://link-url-link.org)       | This can be ABS of PEG. |
-| SPT Servo SPT5435LV-180W 35KG   | 12            | £162.36           |    [link](https://link-url-link.org)       | They need to be >= 15Kg/cm.|
-| M3 Screws, Nuts and washers     | x100           | £10           |    [link](https://link-url-link.org)       | |
-| MPU9250           | 1          | £5           |    [link](https://link-url-link.org)       | |
-| ESP32s         | 1           | £5           |    [link](https://link-url-link.org)       | |
-| (Raspberry Pi 4B)          | 1           | £50           |    [link](https://link-url-link.org)       | This is optional, The robot can uses remote device.  |
-| PCA9685 Servo Driver         | 1          | £4           |    [link](https://link-url-link.org)       |  |
-| 7.4V 2S 5000mAh 50C LiPo Battery | 1          | £30           |    [link](https://link-url-link.org)       | this can be smaller if you want less weight/cost |
-| SBEC 6V 20A | 1          | £20           |    [link](https://link-url-link.org)       | |
-| Miniature Ball Bearings 5x16x5mm   | 4       | £3           |    [link](https://link-url-link.org)       | |
-|  Deep Groove Ball Bearings 25x37x7mm   | 4       | £9           |    [link](https://link-url-link.org)       |  |
-|  RS PRO Miniature Ball Bearing 3x13X5mm  | 8       | £9           |    [link](https://link-url-link.org)       |  |
-| 25T Metal Servo Circular Horn    | 4       | £5           |    [link](https://link-url-link.org)       |  |
-| 25T Metal Servo Arm Horn  | 4       | £5           |    [link](https://link-url-link.org)       |  |
-| Sleeve Bearing 3mm Bore x 5mm OD x 5mm | 30       | £15           |    [link](https://link-url-link.org)       |  |
+| PLA           | 1Kg           | £19           |    --    | This can be ABS of PEG. |
+| SPT Servo SPT5435LV-180W 35KG   | 12            | £162.36           |    [link](https://uk.banggood.com/SPT-Servo-SPT5435LV-180W-35KG-Large-Torque-Waterproof-Metal-Gear-Digital-Servo-For-RC-Robot-RC-Car-p-1577514.html?cur_warehouse=CN)       | They need to be >= 15Kg/cm.|
+| M3 Screws, Nuts and washers     | x100           | £10           |    [link](https://amzn.eu/d/dV1QDNL)       | |
+| MPU9250           | 1          | £5           |    [link](https://www.aliexpress.com/item/1005004573086760.html?_randl_currency=GBP&_randl_shipto=GB&src=google&aff_fcid=41e9a88704994d1e86bda6bb583acc20-1664268874913-07892-UneMJZVf&aff_fsk=UneMJZVf&aff_platform=aaf&sk=UneMJZVf&aff_trace_key=41e9a88704994d1e86bda6bb583acc20-1664268874913-07892-UneMJZVf&terminal_id=cc80addd062b4558acb523f516ecdfe3&afSmartRedirect=y)       | optional, you can use a different IMU if needed |
+| ESP32s         | 1           | £5           |    [link](https://www.google.com/search?q=esp32&rlz=1C1ONGR_en-GBGB992GB992&sxsrf=ALiCzsZepGPdGmADGOMSWxNcJFkwf7XaaA:1664268995462&source=lnms&tbm=shop&sa=X&ved=2ahUKEwjx0qOSzbT6AhUGQEEAHVDBAJ0Q_AUoAXoECAEQAw&biw=1918&bih=1039&dpr=1#spd=12019570854939482759)       | |
+| (Raspberry Pi 4B)          | 1           | £50           |    [link](https://www.aliexpress.com/item/1005003952938315.html?_randl_currency=GBP&_randl_shipto=GB&src=google&aff_fcid=93340942133e48be85abe7f52b6806cc-1664269060030-06205-UneMJZVf&aff_fsk=UneMJZVf&aff_platform=aaf&sk=UneMJZVf&aff_trace_key=93340942133e48be85abe7f52b6806cc-1664269060030-06205-UneMJZVf&terminal_id=cc80addd062b4558acb523f516ecdfe3&afSmartRedirect=y)       | This is optional, The robot can uses remote device.  |
+| PCA9685 Servo Driver         | 1          | £4           |    [link](https://www.aliexpress.com/item/32469378576.html)       |  |
+| 7.4V 2S 5000mAh 50C LiPo Battery | 1          | £30           |    [link](https://amzn.eu/d/aaM0lUO)       | this can be smaller if you want less weight/cost |
+| SBEC 6V 20A | 1          | £20           |    [link](https://hobbyking.com/en_us/yep-20a-hv-2-12s-sbec-w-selectable-voltage-output.html)       | |
+| Miniature Ball Bearings 5x16x5mm   | 4       | £3           |    [link](https://www.ebay.co.uk/itm/394185642290)       | |
+|  Deep Groove Ball Bearings 25x37x7mm   | 4       | £9           |    [link](https://www.ebay.co.uk/itm/124120979478?epid=28035077387&hash=item1ce62fd816:g:cFUAAOSwLIpecLPR&amdata=enc%3AAQAHAAAAoJQoreVPvkWQ1gBh%2BOiPX1BWv05VSyL1pl9tQdsAMxZgJpJy4VTnTr8%2FFW2Lc1HVPLfch2ZJOFeOUIk4bIO2sfl6UDS7BsWbrD1v%2FezQYY4piy8ZhrTNoDw9nbt2n5SiaKVdgnSBgNqcgfzRdbGnj1Rv5Upv%2BuIMloVQOwavfwL49OHsQkgJsVfjAYSDVTHPxfONGwidwoZPiBFLtdgP7Y0%3D%7Ctkp%3ABk9SR86nvuPvYA)       |  |
+|  RS PRO Miniature Ball Bearing 3x13X5mm  | 8       | £9           |    [link](https://www.ebay.co.uk/itm/304258710252?hash=item46d73b7aec:g:1WgAAOSwN~diUTBF&amdata=enc%3AAQAHAAAA4MGsR1psd92dUbvi4uHqMovMcbwXkh60NkWrsxgDQwXE2ettVy3sRi06LdoH5GBpoeM5Cc8ZuFnVI%2FbDqjkIWDoJffTqNEaTuTT02iQpRbWgJfKlg40Au4fUKTzynHB1E06rH5l1GCRUwc7xX4DnbQJkWerMiaJ6p5PFRTmi6fyV7SR6fOJ7FqH0z15FvirmQwTeqKmuHMKNRwz9hVBz8YJcXFiOINyJY0kNHxLLChojPMEPEurdXzcUGjc%2BmnIiACosQf11Xao4XNSpDN41hqhKW8MqvSz75tE6T5SOFBDj%7Ctkp%3ABFBMvLDC4-9g)       |  |
+| 25T Metal Servo Circular Horn    | 4       | £5           |    [link](https://amzn.eu/d/hwdEX03)       |  |
+| 25T Metal Servo Arm Horn  | 4       | £5           |    [link](https://www.amazon.co.uk/N-Aluminum-Clamping-Steering-Crawler/dp/B08V4NP2JT/ref=sr_1_11?keywords=servo+arm&qid=1664269419&qu=eyJxc2MiOiI0LjQ4IiwicXNhIjoiNC4xNyIsInFzcCI6IjIuODcifQ%3D%3D&sr=8-11)       |  |
+| Sleeve Bearing 3mm Bore x 5mm OD x 5mm | 30       | £15           |    [link](https://amzn.eu/d/bPWGEY8)       |  |
 <br>
 
 
