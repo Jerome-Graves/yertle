@@ -19,10 +19,10 @@ from ikpy.link import OriginLink,URDFLink
 import numpy as np
 import keyboard
 
-assert os.path.exists('Software\Debug Console\config.ini')
+assert os.path.exists('Software\YertleUI\config.ini')
 
 
-filename = "Software\Debug Console\config.ini"
+filename = "Software\YertleUI\config.ini"
 
 
 
@@ -1164,7 +1164,7 @@ class YerltleSimulation:
         physicsClient = p.connect(p.GUI)  # or p.DIRECT for non-graphical version
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         planeId = p.loadURDF("plane.urdf")
-        p.setGravity(0, 0, -40)
+        p.setGravity(0, 0, -50)
         p.changeDynamics(planeId,0,rollingFriction=1000)
         self.startPos = [0, 0, 0.3]
         self.startOrientation = p.getQuaternionFromEuler([0, 0, 0])

@@ -164,13 +164,6 @@ private:
 class CommClass {
 public:
   CommClass();
-  struct ControlByteMap {  // these are codes for functions (custom UART protocol)
-    static constexpr uint8_t GET_VOLTAGE = 0x00;
-    static constexpr uint8_t GET_CURRENT = 0x01;
-    static constexpr uint8_t GET_SERVO_POSITION = 0x02;
-    static constexpr uint8_t SET_SERVO_ANGLE = 'a';
-    static constexpr uint8_t SET_SERVO_OFF = 'k';
-  } controlChar;
   void listen();
   void start();
 private:
@@ -193,7 +186,7 @@ private:
   float xOff; 
   float yOff; 
   float zOff;
-  float currentTime =0.0;
+  float currentTime = 0.0;
   float previousTime;
   float sampleTime;
 };

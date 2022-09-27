@@ -1,15 +1,10 @@
 #include <Wire.h>
-#include <FaBo9Axis_MPU9250.h>
 #include "yertle lib.h"
 #include <Arduino.h>
 #include <FaBoPWM_PCA9685.h>
 #include "WiFi.h"
 #include "AsyncUDP.h"
-#include <SimpleKalmanFilter.h>
-#include <Preferences.h>
 #include <MPU9250.h>
-
-Preferences preferences;
 
 MPU9250 mpu;
 
@@ -29,21 +24,6 @@ Flags flag;
 String InputDataString;
 
 
-
-
-
-float rawRotX = 0.0, rawRotY = 0.0, rawRotZ = 0.0;
-float rawAccX = 0.0, rawAccY = 0.0, rawAccZ = 0.0;
-float rawMagX = 0.0, rawMagY = 0.0, rawMagZ = 0.0;
-float accAngleX = 0.0, accAngleY = 0.0, accAngleZ = 0.0;
-float gyroAngleX = 0.0, gyroAngleY = 0.0, gyroAngleZ = 0.0;
-float magAngleX = 0.0, magAngleY = 0.0, magAngleYZ = 0.0;
-
-
-
-
-
-
 /// WIfi  Variables , change if necessary!
 const char* ssid = "dog-net";
 const char* password = "dognet123";
@@ -51,11 +31,10 @@ const char* password = "dognet123";
 unsigned int localUdpPort = 1234;  //  port to listen on
 
 IPAddress local_IP(10, 0, 0, 88);
+
 // Set your Gateway IP address
 IPAddress gateway(10, 0, 0, 1);
-IPAddress subnet(255, 255, 0, 0);
-IPAddress primaryDNS(8, 8, 8, 8);    //optional
-IPAddress secondaryDNS(8, 8, 4, 4);  //optional
+
 
 
 
@@ -155,19 +134,16 @@ void ServoClass::tick() {
   if (flag.newPoseAngleFlag) {  // <--- switched on in ROS task (extenally)
     moveToPose();
     flag.newPoseAngleFlag = false;
-    //Serial.println("flag.newPoseAngleFlag");
   }
 
   if (flag.killServosFlag) {
     killServos();
     flag.killServosFlag = false;
-    //Serial.println("flag.killServosFlag");
   }
   if (flag.newPoseCartesianFlag) {
     solveIk();
     moveToPose();
     flag.newPoseCartesianFlag = false;
-    //Serial.println("flag.newPoseCartesianFlag");
   }
   if (flag.sendPWMDataFlag) {
     sendPWMData();
@@ -213,7 +189,7 @@ void ServoClass::solveIk() {
   Ik(poseCartesian.rb_x, poseCartesian.rb_y, poseCartesian.rb_z, currentPoseAngle.rb_theta1, currentPoseAngle.rb_theta2, currentPoseAngle.rb_theta3);
 }
 
-//Check sign of flaot value.
+//Check sign of x float value.
 int ServoClass::sgn(float x) {
   if (x < 0) { return -1; }
   if (x > 0) { return 1; }
@@ -225,6 +201,10 @@ CommClass::CommClass() {}
 
 //Initialisation of Com Class (wifi)
 void CommClass::start() {
+  IPAddress subnet(255, 255, 0, 0);
+  IPAddress primaryDNS(8, 8, 8, 8);    //optional
+  IPAddress secondaryDNS(8, 8, 4, 4);  //optional
+
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   WiFi.setSleep(false);
@@ -239,6 +219,7 @@ void CommClass::start() {
     delay(500);
     Serial.print(".");
   }
+  Serial.println(WiFi.localIP());
 
   udpClient.connect(IPAddress(10, 0, 0, 13), 1234);
   if (udpServer.listen(24321)) {
@@ -301,7 +282,6 @@ void CommClass::DecodeInputString(String InputString) {
     currentPoseAngle.rb_theta3 = parseString(InputString, ' ', 12).toFloat();
     flag.newPoseAngleFlag = true;
   }
-
   if (InputString.charAt(0) == 'd') {
     currentPoseAngle.lf_theta1 = defaultPoseAngle.lf_theta1;
     currentPoseAngle.lf_theta2 = defaultPoseAngle.lf_theta2;
@@ -387,7 +367,7 @@ void SensorClass::start() {
   delay(2000);
 }
 
-
+// Calibrate IMU for GYRO.
 void SensorClass::calibrate() {
   Serial.println("hold still  in 3,2,1 !!");
   delay(2000);
@@ -395,7 +375,7 @@ void SensorClass::calibrate() {
   Serial.println("done !!");
 
 }
-
+// Calibrate IMU for Magnometer.
 void SensorClass::calibrateMag() {
   Serial.println("move around in fig of 8 in 3,2,1 !!");
   delay(3000);
