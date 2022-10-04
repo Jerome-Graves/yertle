@@ -95,7 +95,7 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 |  RS PRO Miniature Ball Bearing 3x13X5mm  | 8       | £9           |    [link](https://www.ebay.co.uk/itm/304258710252?hash=item46d73b7aec:g:1WgAAOSwN~diUTBF&amdata=enc%3AAQAHAAAA4MGsR1psd92dUbvi4uHqMovMcbwXkh60NkWrsxgDQwXE2ettVy3sRi06LdoH5GBpoeM5Cc8ZuFnVI%2FbDqjkIWDoJffTqNEaTuTT02iQpRbWgJfKlg40Au4fUKTzynHB1E06rH5l1GCRUwc7xX4DnbQJkWerMiaJ6p5PFRTmi6fyV7SR6fOJ7FqH0z15FvirmQwTeqKmuHMKNRwz9hVBz8YJcXFiOINyJY0kNHxLLChojPMEPEurdXzcUGjc%2BmnIiACosQf11Xao4XNSpDN41hqhKW8MqvSz75tE6T5SOFBDj%7Ctkp%3ABFBMvLDC4-9g)       |  |
 | 25T Metal Servo Circular Horn    | 4       | £5           |    [link](https://amzn.eu/d/hwdEX03)       |  |
 | 25T Metal Servo Arm Horn  | 4       | £5           |    [link](https://www.amazon.co.uk/N-Aluminum-Clamping-Steering-Crawler/dp/B08V4NP2JT/ref=sr_1_11?keywords=servo+arm&qid=1664269419&qu=eyJxc2MiOiI0LjQ4IiwicXNhIjoiNC4xNyIsInFzcCI6IjIuODcifQ%3D%3D&sr=8-11)       |  |
-| Sleeve Bearing 3mm Bore x 5mm OD x 5mm | 30       | £15           |    [link](https://amzn.eu/d/bPWGEY8)       |  |
+| Sleeve Bearing 3mm Bore x 5mm OD x 5mm | 32       | £15           |    [link](https://amzn.eu/d/bPWGEY8)       |  |
 <br>
 
 
