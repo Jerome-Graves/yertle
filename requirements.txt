@@ -1,0 +1,12 @@
+# Runtime dependencies for the Yertle control software (Software/YertleUI/YertleUI.py)
+# Install with:  pip install -r requirements.txt
+#
+# Note: tkinter ships with CPython on Windows/macOS. On Debian/Ubuntu install it
+# with the system package manager:  sudo apt install python3-tk
+
+numpy>=1.24
+pyserial>=3.5          # imported as `serial`
+simple-pid>=2.0
+pybullet>=3.2          # digital-twin simulation
+ikpy>=3.3              # inverse-kinematics chains
+keyboard>=0.13         # arrow-key teleop (may require admin/root on some OSes)

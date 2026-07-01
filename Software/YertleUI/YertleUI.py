@@ -18,11 +18,18 @@ from ikpy.chain import Chain
 from ikpy.link import OriginLink,URDFLink
 import numpy as np
 import keyboard
+from pathlib import Path
 
-assert os.path.exists('Software\YertleUI\config.ini')
+# Resolve paths relative to this file so the app runs from any working
+# directory and on any OS (Windows / Linux / macOS).
+SCRIPT_DIR = Path(__file__).resolve().parent          # .../Software/YertleUI
+REPO_ROOT = SCRIPT_DIR.parents[1]                      # repository root
 
+filename = str(SCRIPT_DIR / "config.ini")
+URDF_PATH = str(REPO_ROOT / "Simulation" / "yertle.URDF")
 
-filename = "Software\YertleUI\config.ini"
+if not os.path.exists(filename):
+    raise FileNotFoundError(f"Could not find config file: {filename}")
 
 
 
@@ -1168,7 +1175,7 @@ class YerltleSimulation:
         p.changeDynamics(planeId,0,rollingFriction=1000)
         self.startPos = [0, 0, 0.3]
         self.startOrientation = p.getQuaternionFromEuler([0, 0, 0])
-        self.robotID = p.loadURDF("Simulation\yertle.URDF", self.startPos, self.startOrientation, useFixedBase=False)
+        self.robotID = p.loadURDF(URDF_PATH, self.startPos, self.startOrientation, useFixedBase=False)
         p.resetDebugVisualizerCamera(0.4, 50, -35, self.startPos)
         self.rf_angles= [0 , 0, 0]
         self.lf_angles= [0 , 0, 0]

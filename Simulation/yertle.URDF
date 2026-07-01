@@ -18,7 +18,7 @@
 	<link name="base_link">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\frame.obj" />
+				<mesh filename="URDF/frame.obj" />
 			</geometry>
 			<origin rpy="0 0 3.141" xyz="0 0 0.0" />
 			<material name="black" />
@@ -32,7 +32,7 @@
 	<link name="frame">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\shell.obj" />
+				<mesh filename="URDF/shell.obj" />
 			</geometry>
 			<origin rpy="0 0 3.141" xyz="0 0 0" />
 			<material name="green" />
@@ -43,7 +43,7 @@
 		</inertial>
 		<collision>
 			<geometry>
-				<mesh filename="Simulation\URDF\shell.obj" />
+				<mesh filename="URDF/shell.obj" />
 			</geometry>
 			<origin rpy="0 0 3.141" xyz="0 0 0.0" />
 		</collision>
@@ -57,7 +57,7 @@
 	<link name="lf_shoulder">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\lf shoulder.obj" />
+				<mesh filename="URDF/lf shoulder.obj" />
 			</geometry>
 			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
 			<material name="black" />
@@ -76,7 +76,7 @@
 	<link name="lf_thigh">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\femur.obj" />
+				<mesh filename="URDF/femur.obj" />
 			</geometry>
 			<origin rpy="1.5708 0 1.5708" xyz="0 0 0" />
 			<material name="black" />
@@ -95,7 +95,7 @@
 	<link name="lf_shin">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\tibia.obj" />
+				<mesh filename="URDF/tibia.obj" />
 			</geometry>
 			<origin rpy="0.610865 0 -1.5708" xyz="0 0.008 0" />
 			<material name="black" />
@@ -106,7 +106,7 @@
 		</inertial>
 		<collision>
 			<geometry>
-				<mesh filename="Simulation\URDF\tibia.obj" />
+				<mesh filename="URDF/tibia.obj" />
 			</geometry>
 			<origin rpy="0.610865 0 -1.5708" xyz="0 0.008 0" />
 		</collision>
@@ -121,7 +121,7 @@
 	<link name="rf_shoulder">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\rf shoulder.obj" />
+				<mesh filename="URDF/rf shoulder.obj" />
 			</geometry>
 			<origin rpy="0 0 3.141" xyz="0 0 0" />
 			<material name="black" />
@@ -140,7 +140,7 @@
 	<link name="rf_thigh">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\femur.obj" />
+				<mesh filename="URDF/femur.obj" />
 			</geometry>
 			<origin rpy="4.71239 3.141 1.5708" xyz="0 0 0" />
 			<material name="black" />
@@ -159,7 +159,7 @@
 	<link name="rf_shin">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\tibia.obj" />
+				<mesh filename="URDF/tibia.obj" />
 			</geometry>
 			<origin rpy="0.610865 0 -1.5708" xyz="0 -0.0045 0" />
 			<material name="black" />
@@ -170,7 +170,7 @@
 		</inertial>
 		<collision>
 			<geometry>
-				<mesh filename="Simulation\URDF\tibia.obj" />
+				<mesh filename="URDF/tibia.obj" />
 			</geometry>
 			<origin rpy="0.610865 0 -1.5708" xyz="0 -0.007 0" />
 		</collision>
@@ -185,7 +185,7 @@
 	<link name="lb_shoulder">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\lb shoulder.obj" />
+				<mesh filename="URDF/lb shoulder.obj" />
 			</geometry>
 			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
 			<material name="black" />
@@ -204,7 +204,7 @@
 	<link name="lb_thigh">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\femur.obj" />
+				<mesh filename="URDF/femur.obj" />
 			</geometry>
 			<origin rpy="1.5708 0 1.5708" xyz="0 0 0" />
 			<material name="black" />
@@ -223,7 +223,7 @@
 	<link name="lb_shin">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\tibia.obj" />
+				<mesh filename="URDF/tibia.obj" />
 			</geometry>
 			<origin rpy="0.610865 0 -1.5708" xyz="0 0.008 0" />
 			<material name="black" />
@@ -234,7 +234,7 @@
 		</inertial>
 		<collision>
 			<geometry>
-				<mesh filename="Simulation\URDF\tibia.obj" />
+				<mesh filename="URDF/tibia.obj" />
 			</geometry>
 			<origin rpy="0.610865 0 -1.5708" xyz="0 0.008 0" />
 		</collision>
@@ -249,7 +249,7 @@
 	<link name="rb_shoulder">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\rb shoulder.obj" />
+				<mesh filename="URDF/rb shoulder.obj" />
 			</geometry>
 			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
 			<material name="black" />
@@ -268,7 +268,7 @@
 	<link name="rb_thigh">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\femur.obj" />
+				<mesh filename="URDF/femur.obj" />
 			</geometry>
 			<origin rpy="4.71239 3.141 1.5708" xyz="0 0 0" />
 			<material name="black" />
@@ -287,7 +287,7 @@
 	<link name="rb_shin">
 		<visual>
 			<geometry>
-				<mesh filename="Simulation\URDF\tibia.obj" />
+				<mesh filename="URDF/tibia.obj" />
 			</geometry>
 			<origin rpy="0.610865 0 -1.5708" xyz="0 -0.0045 0" />
 			<material name="black" />
@@ -298,7 +298,7 @@
 		</inertial>
 		<collision>
 			<geometry>
-				<mesh filename="Simulation\URDF\tibia.obj" />
+				<mesh filename="URDF/tibia.obj" />
 			</geometry>
 			<origin rpy="0.610865 0 -1.5708" xyz="0 -0.007 0" />
 		</collision>

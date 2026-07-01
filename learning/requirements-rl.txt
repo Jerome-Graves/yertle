@@ -1,0 +1,12 @@
+# Reinforcement-learning extras for the Yertle learned-locomotion pipeline.
+# Install on top of the base requirements:
+#   pip install -r requirements.txt -r learning/requirements-rl.txt
+#
+# torch is CPU-only by default here. For GPU training install the CUDA build
+# from https://pytorch.org first, then this file.
+
+gymnasium>=0.29
+pybullet>=3.2
+stable-baselines3>=2.3
+torch>=2.1
+tensorboard>=2.15
