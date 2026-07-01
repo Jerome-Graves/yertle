@@ -82,8 +82,11 @@ class YertleEnvConfig:
 
     # Action
     action_scale: float = 0.4            # rad; residual added to DEFAULT_STANCE
-    max_torque: float = 1.5              # N.m per servo (hobby servo scale)
-    position_gain: float = 0.4
+    max_torque: float = 3.0              # N.m per servo; enough authority to stay
+                                         # up during dynamic leg motion (a strong
+                                         # coreless servo; drop toward 1.5 for a
+                                         # tighter sim-to-real match once walking)
+    position_gain: float = 0.8
 
     # Command range (target base velocity): vx (m/s), vy (m/s), yaw (rad/s).
     # x starts at a meaningful speed so "stand still" is never a valid solution.
@@ -99,8 +102,10 @@ class YertleEnvConfig:
     w_lin_vel: float = 1.0               # exp velocity tracking
     w_progress: float = 2.0              # linear reward for moving along the command
     tracking_sigma: float = 0.1          # sharper kernel -> standing is penalised
-    w_yaw_vel: float = 0.5
-    w_alive: float = 0.25                # kept small so it cannot beat walking
+    w_yaw_vel: float = 0.25
+    w_alive: float = 0.0                 # no free reward for merely staying up;
+                                         # surviving is rewarded via accumulated
+                                         # tracking over a longer episode
     w_energy: float = 5e-4               # small; do not over-penalise motion
     w_action_rate: float = 0.01
     w_orientation: float = 0.5
@@ -386,7 +391,7 @@ class YertleEnv(gym.Env):
             )
             proj = p.computeProjectionMatrixFOV(60, width / height, 0.1, 100)
             _, _, rgb, _, _ = p.getCameraImage(width, height, view, proj)
-            return np.reshape(rgb, (height, width, 4))[:, :, :3]
+            return np.reshape(np.asarray(rgb, dtype=np.uint8), (height, width, 4))[:, :, :3]
         return None
 
     def close(self):

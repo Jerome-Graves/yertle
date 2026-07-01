@@ -10,3 +10,8 @@ pybullet>=3.2
 stable-baselines3>=2.3
 torch>=2.1
 tensorboard>=2.15
+
+# Artifacts: video recording (record_video.py) and reward curves (plot_progress.py)
+imageio>=2.31
+imageio-ffmpeg>=0.4
+matplotlib>=3.7

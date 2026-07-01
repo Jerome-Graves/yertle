@@ -12,6 +12,9 @@ learning/
     yertle_env.py         Gymnasium environment (PyBullet backend)
     train.py              PPO training (stable-baselines3)
     enjoy.py              Roll out / render a trained policy
+    deploy.py             Sim-to-real bridge (see also ../ros2)
+    record_video.py       Save an mp4/gif of a trained policy
+    plot_progress.py      Reward curve PNG from a training log
     smoke_test.py         Fast env check, no RL deps required
     requirements-rl.txt   RL dependencies (gymnasium, sb3, torch, ...)
 ```
@@ -40,6 +43,10 @@ python -m learning.train --timesteps 3000000 --n-envs 8
 
 # 4. Watch the result
 python -m learning.enjoy --policy learning/runs/ppo_yertle/policy.zip
+
+# 5. Produce demo artifacts
+python -m learning.record_video --policy learning/runs/ppo_yertle/policy.zip --seconds 8
+python -m learning.plot_progress --log learning/runs/train_ppo_yertle.log
 ```
 
 TensorBoard: `tensorboard --logdir learning/runs`.

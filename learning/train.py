@@ -38,6 +38,9 @@ def main():
     parser.add_argument("--n-envs", type=int, default=8)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--run-name", type=str, default="ppo_yertle")
+    parser.add_argument("--ent-coef", type=float, default=0.005,
+                        help="PPO entropy coefficient; >0 keeps the policy exploring so it "
+                             "escapes the 'stand still' local optimum.")
     parser.add_argument("--no-randomize", action="store_true", help="Disable domain randomisation.")
     args = parser.parse_args()
 
@@ -71,7 +74,7 @@ def main():
         gae_lambda=0.95,
         gamma=0.99,
         n_epochs=5,
-        ent_coef=0.0,
+        ent_coef=args.ent_coef,
         learning_rate=3e-4,
         clip_range=0.2,
         policy_kwargs=dict(net_arch=[256, 256]),
