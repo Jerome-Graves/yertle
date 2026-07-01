@@ -27,10 +27,14 @@ in [`learning/deploy.py`](../learning/deploy.py), which is validated by the
 simulation self-check (`python -m learning.deploy --check`). The node is a thin
 ROS wrapper around that same tested core.
 
-## Build and run
+## Status
 
-This package needs a ROS 2 environment (tested target: Humble / Jazzy on Ubuntu).
-It is not built in this repository's CI because that runs on Windows without ROS.
+Built and run on **ROS 2 Humble**: the package compiles with `colcon`, and the
+node runs live — publishing a `/cmd_vel` and an `/imu` produces `/joint_commands`
+(12 joint targets) from the policy. It was validated on Windows with no WSL, via
+RoboStack (ROS 2 as conda packages), which is the quickest way to run it here.
+
+## Build and run — Linux (Ubuntu, ROS 2 Humble/Jazzy)
 
 ```bash
 # from a sourced ROS 2 workspace
@@ -40,11 +44,26 @@ cd ~/yertle_ws
 colcon build --packages-select yertle_rl
 source install/setup.bash
 
-ros2 run yertle_rl policy_node --ros-args -p policy_path:=/path/to/policy.zip
+# the node imports the repo's `learning` package; put the repo root on PYTHONPATH
+PYTHONPATH=/path/to/yertle ros2 run yertle_rl policy_node \
+    --ros-args -p policy_path:=/path/to/policy.zip
+```
+
+## Build and run — Windows (no WSL, via RoboStack)
+
+```bat
+:: install Miniforge, then create a ROS 2 env
+conda create -y -n ros2 -c conda-forge -c robostack-staging ros-humble-ros-base colcon-common-extensions
+conda run -n ros2 pip install pybullet gymnasium
+
+:: build (keep outputs outside the repo)
+cd yertle\ros2
+conda run -n ros2 colcon build --base-paths . --build-base %USERPROFILE%\ros_ws\build --install-base %USERPROFILE%\ros_ws\install
 ```
 
 Before building, set your maintainer email in `package.xml` and `setup.py`
-(currently a placeholder).
+(currently a placeholder). The node runs with no `policy_path` too, in which
+case it outputs the standing pose (handy for a plumbing check).
 
 ## Wiring it to the robot
 
