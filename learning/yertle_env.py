@@ -85,23 +85,26 @@ class YertleEnvConfig:
     max_torque: float = 1.5              # N.m per servo (hobby servo scale)
     position_gain: float = 0.4
 
-    # Command range (target base velocity): vx (m/s), vy (m/s), yaw (rad/s)
-    command_x_range: tuple[float, float] = (0.0, 0.35)
+    # Command range (target base velocity): vx (m/s), vy (m/s), yaw (rad/s).
+    # x starts at a meaningful speed so "stand still" is never a valid solution.
+    command_x_range: tuple[float, float] = (0.15, 0.35)
     command_y_range: tuple[float, float] = (-0.1, 0.1)
-    command_yaw_range: tuple[float, float] = (-0.5, 0.5)
+    command_yaw_range: tuple[float, float] = (-0.4, 0.4)
 
     # Termination
     min_base_height: float = 0.08        # m
     max_tilt: float = 0.7                # rad from upright (~40 deg)
 
     # Reward weights
-    w_lin_vel: float = 1.5
+    w_lin_vel: float = 1.0               # exp velocity tracking
+    w_progress: float = 2.0              # linear reward for moving along the command
+    tracking_sigma: float = 0.1          # sharper kernel -> standing is penalised
     w_yaw_vel: float = 0.5
-    w_alive: float = 0.5
-    w_energy: float = 2e-3
+    w_alive: float = 0.25                # kept small so it cannot beat walking
+    w_energy: float = 5e-4               # small; do not over-penalise motion
     w_action_rate: float = 0.01
     w_orientation: float = 0.5
-    w_height: float = 0.5
+    w_height: float = 0.25
 
     # Domain randomisation
     randomize: bool = True
@@ -344,11 +347,18 @@ class YertleEnv(gym.Env):
         q, dq = self._joint_state()
         cfg = self.cfg
 
-        # Velocity tracking (exp kernel).
+        # Velocity tracking (exp kernel) plus a direct forward-progress term.
+        # The progress term gives a gradient toward actually moving, which the
+        # exp kernel alone does not once the robot can stand still.
         lin_err = np.sum((self._command[:2] - lin_body[:2]) ** 2)
         yaw_err = (self._command[2] - ang_body[2]) ** 2
-        r_lin = cfg.w_lin_vel * np.exp(-lin_err / 0.25)
+        r_lin = cfg.w_lin_vel * np.exp(-lin_err / cfg.tracking_sigma)
         r_yaw = cfg.w_yaw_vel * np.exp(-yaw_err / 0.25)
+
+        cmd_xy = self._command[:2]
+        cmd_norm = float(np.linalg.norm(cmd_xy)) + 1e-6
+        vel_along_cmd = float(np.dot(lin_body[:2], cmd_xy) / cmd_norm)   # m/s along command
+        r_progress = cfg.w_progress * float(np.clip(vel_along_cmd, -0.5, 0.5))
 
         # Penalties.
         r_energy = -cfg.w_energy * float(np.sum(np.abs(dq * action)))
@@ -358,7 +368,7 @@ class YertleEnv(gym.Env):
         r_height = -cfg.w_height * float((pos[2] - cfg.target_height) ** 2)
         r_alive = cfg.w_alive
 
-        reward = r_lin + r_yaw + r_alive + r_energy + r_action_rate + r_orient + r_height
+        reward = r_lin + r_progress + r_yaw + r_alive + r_energy + r_action_rate + r_orient + r_height
 
         tilt = np.arccos(np.clip(-gravity_body[2], -1.0, 1.0))
         fell = (pos[2] < cfg.min_base_height) or (tilt > cfg.max_tilt)
