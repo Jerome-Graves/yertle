@@ -24,6 +24,11 @@ ENV/
 
 # ---- RL training outputs ----
 learning/runs/
+isaac_lab/runs/
+
+# ---- Generated robot model (regenerate with convert_urdf; config.yaml holds a
+#      local absolute path) ----
+Simulation/usd/
 
 # ---- OS ----
 .DS_Store

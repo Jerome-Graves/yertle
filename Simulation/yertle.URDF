@@ -25,7 +25,7 @@
 		</visual>
 		<inertial>
 			<mass value="1.5" />
-			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+			<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
 		</inertial>
 	</link>
 	<!-- shell -->
@@ -39,7 +39,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 		<collision>
 			<geometry>
@@ -57,14 +57,14 @@
 	<link name="lf_shoulder">
 		<visual>
 			<geometry>
-				<mesh filename="URDF/lf shoulder.obj" />
+				<mesh filename="URDF/lf_shoulder.obj" />
 			</geometry>
 			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
 			<material name="black" />
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 	</link>
 	<joint name="lf_shoulder" type="continuous">
@@ -83,7 +83,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 	</link>
 	<joint name="lf_thigh" type="continuous">
@@ -102,7 +102,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 		<collision>
 			<geometry>
@@ -121,14 +121,14 @@
 	<link name="rf_shoulder">
 		<visual>
 			<geometry>
-				<mesh filename="URDF/rf shoulder.obj" />
+				<mesh filename="URDF/rf_shoulder.obj" />
 			</geometry>
 			<origin rpy="0 0 3.141" xyz="0 0 0" />
 			<material name="black" />
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 	</link>
 	<joint name="rf_shoulder" type="continuous">
@@ -147,7 +147,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 	</link>
 	<joint name="rf_thigh" type="continuous">
@@ -166,7 +166,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 		<collision>
 			<geometry>
@@ -185,14 +185,14 @@
 	<link name="lb_shoulder">
 		<visual>
 			<geometry>
-				<mesh filename="URDF/lb shoulder.obj" />
+				<mesh filename="URDF/lb_shoulder.obj" />
 			</geometry>
 			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
 			<material name="black" />
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 	</link>
 	<joint name="lb_shoulder" type="continuous">
@@ -211,7 +211,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 	</link>
 	<joint name="lb_thigh" type="continuous">
@@ -230,7 +230,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 		<collision>
 			<geometry>
@@ -249,14 +249,14 @@
 	<link name="rb_shoulder">
 		<visual>
 			<geometry>
-				<mesh filename="URDF/rb shoulder.obj" />
+				<mesh filename="URDF/rb_shoulder.obj" />
 			</geometry>
 			<origin rpy="3.141 3.141 0" xyz="0 0 0" />
 			<material name="black" />
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 	</link>
 	<joint name="rb_shoulder" type="continuous">
@@ -275,7 +275,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 	</link>
 	<joint name="rb_thigh" type="continuous">
@@ -294,7 +294,7 @@
 		</visual>
 		<inertial>
 			<mass value="0.025" />
-			<inertia ixx="0.4" ixy="0.4" ixz="0.4" iyy="0.4" iyz="0.4" izz="0.4" />
+			<inertia ixx="5e-05" ixy="0" ixz="0" iyy="5e-05" iyz="0" izz="5e-05" />
 		</inertial>
 		<collision>
 			<geometry>
