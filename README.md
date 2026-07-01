@@ -128,6 +128,29 @@ python -m learning.train --timesteps 3000000 --n-envs 8
 - - -
 <br>
 
+## GPU locomotion with NVIDIA Isaac Lab:
+Click [here](isaac_lab/README.md) for the Isaac Lab pipeline.<br><br>
+The same robot is also trained on **NVIDIA Isaac Lab** (Isaac Sim 5.1 + PhysX),
+the industry-standard stack for legged-robot RL. The URDF is converted to USD and
+dropped into Isaac Lab's velocity-tracking locomotion task, then trained with
+`rsl_rl` PPO across **4096 parallel environments** on a single RTX GPU. A walking
+policy converges in about ten minutes (~80,000 simulation steps per second).
+
+<p align="center">
+<img src="isaac_lab/media/yertle_isaac_walk.gif" width="600" />
+<br>
+<img src="isaac_lab/media/isaac_reward_curve.png" width="600" />
+</p>
+
+```bash
+# in the Isaac Sim python env, from the repo root
+python isaac_lab/train.py --headless --num_envs 4096 --max_iterations 500
+python isaac_lab/play.py --checkpoint <model.pt> --num_envs 16 --video
+```
+
+- - -
+<br>
+
 ## Repository structure
 
 ```
@@ -136,7 +159,9 @@ Simulation/    URDF model and meshes for the PyBullet digital twin
 Software/
     ESP32/     Robot firmware (C++, Arduino / FreeRTOS)
     YertleUI/  Python control GUI: IK, PID balance, gait, PyBullet simulation
-learning/      Reinforcement-learning locomotion (Gymnasium env + PPO)
+learning/      RL locomotion, CPU (Gymnasium + PyBullet + PPO) and sim-to-real bridge
+isaac_lab/     RL locomotion, GPU (NVIDIA Isaac Lab + rsl_rl, 4096 parallel envs)
+ros2/          ROS 2 node that runs a trained policy
 requirements.txt, pyproject.toml   Python dependencies
 ```
 
@@ -165,6 +190,6 @@ You do not need the physical robot to try it. Launch the GUI, press **Start Simu
 
 ## To Do
 
-*  Train and publish a reference locomotion policy (checkpoint + video)
-*  Sim-to-real deployment bridge (policy inference to UDP joint targets)
-*  ROS 2 integration
+*  Deploy an Isaac Lab-trained policy to the physical robot and close the sim-to-real loop
+*  Add joint limits and an actuator model for a tighter sim-to-real match
+*  Train on rough terrain (the Isaac Lab task already supports it)
