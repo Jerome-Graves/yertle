@@ -1,2 +1,27 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.Python
 
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ---- Editors / IDE ----
 .vscode/c_cpp_properties.json
+
+# ---- OS ----
+.DS_Store
+Thumbs.db

@@ -27,12 +27,12 @@ There are 2 options for controlling the robot. You can run The python GUI script
 There are a few references to IP addresses in the code. You will have to modify them in the python and the .ino file.  I am working on making this easier.
 <br><br>
 The robot will want to connect to WiFi when it starts.
-The default login detail are: <br>
-* USSID : <b>dog-net</b>
+The default login details are: <br>
+* SSID : <b>dog-net</b>
 
-* PASSWORD: <b>dog123</b>
+* PASSWORD: <b>dognet123</b>
 
-You can change these in the <b>.ino</b> file.
+You can change these near the top of the <b>yertle_lib.cpp</b> file.
 <br><br>
 
 </p>

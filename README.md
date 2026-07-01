@@ -113,6 +113,40 @@ Here is another simulation example from Carter James using Unity.
 
 <br>
 
+## Repository structure
+
+```
+Design/        3D-printed parts, assembly guide and bill of materials
+Simulation/    URDF model and meshes for the PyBullet digital twin
+Software/
+    ESP32/     Robot firmware (C++, Arduino / FreeRTOS)
+    YertleUI/  Python control GUI: IK, PID balance, gait, PyBullet simulation
+requirements.txt, pyproject.toml   Python dependencies
+```
+
+- - -
+<br>
+
+## Getting started (control software)
+
+Requires Python 3.9 or newer.
+
+```bash
+git clone https://github.com/Jerome-Graves/yertle.git
+cd yertle
+pip install -r requirements.txt
+python Software/YertleUI/YertleUI.py
+```
+
+On Debian/Ubuntu, tkinter is a separate system package: `sudo apt install python3-tk`.
+
+You do not need the physical robot to try it. Launch the GUI, press **Start Simulation** to open the PyBullet digital twin, then drive it with the arrow keys.
+
+**Building the firmware:** open `Software/ESP32/firmware/firmware.ino` in the Arduino IDE with the ESP32 board package installed, along with the `FaBoPWM_PCA9685` and `MPU9250` libraries. WiFi credentials and IP addresses are set near the top of `yertle_lib.cpp`.
+
+- - -
+<br>
+
 ## To Do
 
 *  ROS integration

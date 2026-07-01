@@ -1,0 +1,28 @@
+[project]
+name = "yertle"
+version = "0.1.0"
+description = "A 3D-printed quadrupedal robot for locomotion research"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Jerome Graves" }]
+dependencies = [
+    "numpy>=1.24",
+    "pyserial>=3.5",
+    "simple-pid>=2.0",
+    "pybullet>=3.2",
+    "ikpy>=3.3",
+    "keyboard>=0.13",
+]
+
+[project.urls]
+Homepage = "https://github.com/Jerome-Graves/yertle"
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.ruff.lint]
+# Start lenient: flag real problems (undefined names, unused imports) without
+# forcing a full style rewrite of the existing control software.
+select = ["E9", "F"]
