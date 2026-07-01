@@ -109,8 +109,23 @@ Here is another simulation example from Carter James using Unity.
 - - -
 <br>
 
+## Learned locomotion (reinforcement learning):
+Click [here](learning/README.md) for the RL locomotion pipeline.<br><br>
+Alongside the hand-tuned sinusoidal gait, Yertle now has a reinforcement-learning
+environment for training a walking policy in simulation and transferring it to
+the physical robot. It wraps the same URDF in a Gymnasium environment
+(PyBullet backend), trains with PPO, and uses domain randomisation (mass,
+friction, sensor noise, pushes) to close the sim-to-real gap. The trained
+policy outputs joint targets on the existing UDP command path, so no firmware
+change is needed to deploy it.
 
+```bash
+pip install -r requirements.txt -r learning/requirements-rl.txt
+python -m learning.smoke_test          # check the environment
+python -m learning.train --timesteps 3000000 --n-envs 8
+```
 
+- - -
 <br>
 
 ## Repository structure
@@ -121,6 +136,7 @@ Simulation/    URDF model and meshes for the PyBullet digital twin
 Software/
     ESP32/     Robot firmware (C++, Arduino / FreeRTOS)
     YertleUI/  Python control GUI: IK, PID balance, gait, PyBullet simulation
+learning/      Reinforcement-learning locomotion (Gymnasium env + PPO)
 requirements.txt, pyproject.toml   Python dependencies
 ```
 
@@ -149,4 +165,6 @@ You do not need the physical robot to try it. Launch the GUI, press **Start Simu
 
 ## To Do
 
-*  ROS integration
+*  Train and publish a reference locomotion policy (checkpoint + video)
+*  Sim-to-real deployment bridge (policy inference to UDP joint targets)
+*  ROS 2 integration

@@ -22,6 +22,9 @@ ENV/
 # ---- Editors / IDE ----
 .vscode/c_cpp_properties.json
 
+# ---- RL training outputs ----
+learning/runs/
+
 # ---- OS ----
 .DS_Store
 Thumbs.db
