@@ -12,10 +12,6 @@
 
 <p align="center"><b>From a hand-tuned gait to reinforcement-learned locomotion: trained on CPU (PyBullet) and GPU (Isaac Lab), deployed via a sim-to-real bridge and ROS 2.</b></p>
 
-<p align="center">
-<img src="media/yertle_demo.gif" width="720" />
-</p>
-
 <br>
 The robot consists of:
 
