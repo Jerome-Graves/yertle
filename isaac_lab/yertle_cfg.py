@@ -44,10 +44,17 @@ YERTLE_CFG = ArticulationCfg(
     ),
     soft_joint_pos_limit_factor=0.9,
     actuators={
+        # Implicit PhysX drive with effort/velocity caps. A DCMotorCfg
+        # (explicit torque-speed curve) was tried and is closer to a real servo
+        # on paper, but at hobby-servo gains the explicit torque application is
+        # underdamped: the robot oscillates against its joint limits and cannot
+        # hold stance. The implicit drive with the same caps is stable and,
+        # together with the URDF joint limits, still constrains the policy to
+        # what the hardware can do.
         "legs": ImplicitActuatorCfg(
             joint_names_expr=[".*_shoulder", ".*_thigh", ".*_shin"],
-            effort_limit=3.0,      # N.m, hobby-servo scale (matches PyBullet env)
-            velocity_limit=10.0,
+            effort_limit=3.0,          # N.m, hobby-servo scale
+            velocity_limit=10.0,       # rad/s
             stiffness=25.0,
             damping=0.5,
         ),
