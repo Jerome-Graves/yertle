@@ -50,7 +50,7 @@ import omni.graph.core as og  # noqa: E402
 from isaacsim.core.api import SimulationContext  # noqa: E402
 from isaacsim.core.utils.stage import add_reference_to_stage  # noqa: E402
 
-USD = str(Path(__file__).resolve().parents[1] / "Simulation" / "usd" / "yertle.usd")
+USD = str(Path(__file__).resolve().parents[1] / "simulation" / "usd" / "yertle.usd")
 ROBOT_PRIM = "/World/Yertle"
 
 add_reference_to_stage(usd_path=USD, prim_path=ROBOT_PRIM)

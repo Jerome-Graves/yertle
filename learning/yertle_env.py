@@ -1,6 +1,6 @@
 """Gymnasium environment for learned locomotion on the Yertle quadruped.
 
-The environment loads the existing ``Simulation/yertle.URDF`` in PyBullet and
+The environment loads the existing ``simulation/yertle.urdf`` in PyBullet and
 exposes a standard Gymnasium API so it can be trained with any off-the-shelf RL
 library (stable-baselines3, CleanRL, RLlib, etc.).
 
@@ -46,7 +46,7 @@ import pybullet_data
 
 # Repository layout: this file lives at <repo>/learning/yertle_env.py
 REPO_ROOT = Path(__file__).resolve().parents[1]
-URDF_PATH = REPO_ROOT / "Simulation" / "yertle.URDF"
+URDF_PATH = REPO_ROOT / "simulation" / "yertle.urdf"
 
 # The 12 actuated joints, in a fixed policy order (leg, then segment).
 LEG_PREFIXES = ("lf", "rf", "lb", "rb")
@@ -54,7 +54,7 @@ JOINT_SEGMENTS = ("shoulder", "thigh", "shin")
 JOINT_NAMES = tuple(f"{leg}_{seg}" for leg in LEG_PREFIXES for seg in JOINT_SEGMENTS)
 
 # Per-joint soft limits (radians), derived from the firmware servo limits in
-# ``Software/ESP32/firmware/yertle_lib.h``. Order matches JOINT_SEGMENTS.
+# ``software/ESP32/firmware/yertle_lib.h``. Order matches JOINT_SEGMENTS.
 _DEG = np.pi / 180.0
 SEGMENT_LIMITS = {
     "shoulder": (-45.0 * _DEG, 45.0 * _DEG),

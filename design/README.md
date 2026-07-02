@@ -21,7 +21,7 @@
 
 
 # 3D Printed Parts 
-Yertle can be 3D printed with PLA or ABS. You will need a printer with a build plate 150x150cm. It took me roughly 2 weeks (5-10 hours a day) to print all the parts on my <b>Ender 3 Pro</b>. Most of the parts are compatible with the original SpotMicro parts.
+Yertle can be 3D printed with PLA or ABS. You will need a printer with a build plate of at least 150x150mm. It took me roughly 2 weeks (5-10 hours a day) to print all the parts on my <b>Ender 3 Pro</b>. Most of the parts are compatible with the original SpotMicro parts.
 
 <br>
 
@@ -30,10 +30,10 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 
 | Item          | Quantity      | Link                             | Notes      |
 | ------------- | ------------- | -------------                    | ---------- |
-| Top Shell           | 1        | [link](STL/Shell/Top%20Shell.stl)     | print in secondary colour  |
-| Bottom Shell           | 1     | [link](STL/Shell/Bottom%20Shell.stl)     |print in secondary colour |
-| Front Shell          | 1       | [link](STL/Shell/Front%20Shell.stl)      |print in secondary colour  |
-| Back Shell          | 1        | [link](STL/Shell/Back%20Shell.stl)     | print in secondary colour |
+| Top Shell           | 1        | [link](STL/Shell/Top_Shell.stl)     | print in secondary colour  |
+| Bottom Shell           | 1     | [link](STL/Shell/Bottom_Shell.stl)     |print in secondary colour |
+| Front Shell          | 1       | [link](STL/Shell/Front_Shell.stl)      |print in secondary colour  |
+| Back Shell          | 1        | [link](STL/Shell/Back_Shell.stl)     | print in secondary colour |
 
 
 
@@ -42,15 +42,15 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 ### Body Frame:
 | Item          | Quantity      | Link                             | Notes      |
 | ------------- | ------------- | -------------                    | ---------- |
-| Inner Shoulder Frame           | 2        | [link](STL/Frame/Inner%20Shoulder%20Frame.stl)     |  no supports|
-| Outer Shoulder Frame           | 2        | [link](STL/Frame/Outer%20Shoulder%20Frame.stl)     |  no supports|
-| Upper Shoulder Frame           | 2        | [link](STL/Frame/Upper%20Shoulder%20Frame.stl)     |  no supports|
-| Lower Shoulder Frame           | 2        | [link](STL/Frame/Lower%20Shoulder%20Frame.stl)     |  no supports|
-| Left Servo Mount          | 2        | [link](STL/Frame/Left%20Servo%20Mount.stl)     |  no supports|
-| Right Servo Mount        | 2        | [link](STL/Frame/Left%20Servo%20Mount.stl)     |  no supports|
-| Servo Mount Top Bracket  | 4        | [link](STL/Frame/Servo%20Mount%20Top%20Bracket.stl)     |  no supports|
-| Side Body beam           | 2        | [link](STL/Frame/Side%20Body%20Beam.stl)     |  no supports|
-| Electronics Mounting Plate          | 1        | [link](STL/Frame/Electronics%20Mounting%20Plate.stl)     |  no supports|
+| Inner Shoulder Frame           | 2        | [link](STL/Frame/Inner_Shoulder_Frame.stl)     |  no supports|
+| Outer Shoulder Frame           | 2        | [link](STL/Frame/Outer_Shoulder_Frame.stl)     |  no supports|
+| Upper Shoulder Frame           | 2        | [link](STL/Frame/Upper_Shoulder_Frame.stl)     |  no supports|
+| Lower Shoulder Frame           | 2        | [link](STL/Frame/Lower_Shoulder_Frame.stl)     |  no supports|
+| Left Servo Mount          | 2        | [link](STL/Frame/Left_Servo_Mount.stl)     |  no supports|
+| Right Servo Mount        | 2        | [link](STL/Frame/Right_Servo_Mount.stl)     |  no supports|
+| Servo Mount Top Bracket  | 4        | [link](STL/Frame/Servo_Mount_Top_Bracket.stl)     |  no supports|
+| Side Body beam           | 2        | [link](STL/Frame/Side_Body_Beam.stl)     |  no supports|
+| Electronics Mounting Plate          | 1        | [link](STL/Frame/Electronics_Mounting_Plate.stl)     |  no supports|
 
 
 <br>
@@ -58,14 +58,14 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 ### Legs:
 | Item          | Quantity      | Link                             | Notes      |
 | ------------- | ------------- | -------------                    | ---------- |
-| Inner Tibia           | 4       | [link](STL/Legs/Inner%20Tibia.stl)     | |
-| Outer Tibia           | 4       | [link](STL/Legs/Outer%20Tibia.stl)     | |
+| Inner Tibia           | 4       | [link](STL/Legs/Inner_Tibia.stl)     | |
+| Outer Tibia           | 4       | [link](STL/Legs/Outer_Tibia.stl)     | |
 | Femur                 | 4       | [link](STL/Legs/Femur.stl)     | |
-| Femur Servo Connector | 4       | [link](STL/Legs/Femur%20Servo%20Connector.stl)     | high infill|
-| Left Shoulder         | 2       | [link](STL/Legs/Left%20Shoulder.stl)     |  print in secondary colour |
-| Right Shoulder        | 2       | [link](STL/Legs/Right%20Shoulder.stl)     |  print in secondary colour |
-| Short Link           | 4        | [link](STL/Legs/Short%20Link.stl)     |   |
-| Long Link            | 4        | [link](STL/Legs/Long%20Link.stl)     |  |
+| Femur Servo Connector | 4       | [link](STL/Legs/Femur_Servo_Connector.stl)     | high infill|
+| Left Shoulder         | 2       | [link](STL/Legs/Left_Shoulder.stl)     |  print in secondary colour |
+| Right Shoulder        | 2       | [link](STL/Legs/Right_Shoulder.stl)     |  print in secondary colour |
+| Short Link           | 4        | [link](STL/Legs/Short_Link.stl)     |   |
+| Long Link            | 4        | [link](STL/Legs/Long_Link.stl)     |  |
 
 - - -
 
@@ -81,12 +81,12 @@ Yertle can be 3D printed with PLA or ABS. You will need a printer with a build p
 # Bill of Materials:
 | Item          | Quantity      | Cost          | Link          | Notes      |
 | ------------- | ------------- | ------------- | ------------- | ---------- |
-| PLA           | 1Kg           | £19           |    --    | This can be ABS of PEG. |
+| PLA           | 1Kg           | £19           |    --    | This can also be ABS or PETG. |
 | SPT Servo SPT5435LV-180W 35KG   | 12            | £162.36           |    [link](https://uk.banggood.com/SPT-Servo-SPT5435LV-180W-35KG-Large-Torque-Waterproof-Metal-Gear-Digital-Servo-For-RC-Robot-RC-Car-p-1577514.html?cur_warehouse=CN)       | They need to be >= 15Kg/cm.|
 | M3 Screws, Nuts and washers     | x100           | £10           |    [link](https://amzn.eu/d/dV1QDNL)       | |
 | MPU9250           | 1          | £5           |    [link](https://www.aliexpress.com/item/1005004573086760.html?_randl_currency=GBP&_randl_shipto=GB&src=google&aff_fcid=41e9a88704994d1e86bda6bb583acc20-1664268874913-07892-UneMJZVf&aff_fsk=UneMJZVf&aff_platform=aaf&sk=UneMJZVf&aff_trace_key=41e9a88704994d1e86bda6bb583acc20-1664268874913-07892-UneMJZVf&terminal_id=cc80addd062b4558acb523f516ecdfe3&afSmartRedirect=y)       | optional, you can use a different IMU if needed |
 | ESP32s         | 1           | £5           |    [link](https://www.google.com/search?q=esp32&rlz=1C1ONGR_en-GBGB992GB992&sxsrf=ALiCzsZepGPdGmADGOMSWxNcJFkwf7XaaA:1664268995462&source=lnms&tbm=shop&sa=X&ved=2ahUKEwjx0qOSzbT6AhUGQEEAHVDBAJ0Q_AUoAXoECAEQAw&biw=1918&bih=1039&dpr=1#spd=12019570854939482759)       | |
-| (Raspberry Pi 4B)          | 1           | £50           |    [link](https://www.aliexpress.com/item/1005003952938315.html?_randl_currency=GBP&_randl_shipto=GB&src=google&aff_fcid=93340942133e48be85abe7f52b6806cc-1664269060030-06205-UneMJZVf&aff_fsk=UneMJZVf&aff_platform=aaf&sk=UneMJZVf&aff_trace_key=93340942133e48be85abe7f52b6806cc-1664269060030-06205-UneMJZVf&terminal_id=cc80addd062b4558acb523f516ecdfe3&afSmartRedirect=y)       | This is optional, The robot can uses remote device.  |
+| (Raspberry Pi 4B)          | 1           | £50           |    [link](https://www.aliexpress.com/item/1005003952938315.html?_randl_currency=GBP&_randl_shipto=GB&src=google&aff_fcid=93340942133e48be85abe7f52b6806cc-1664269060030-06205-UneMJZVf&aff_fsk=UneMJZVf&aff_platform=aaf&sk=UneMJZVf&aff_trace_key=93340942133e48be85abe7f52b6806cc-1664269060030-06205-UneMJZVf&terminal_id=cc80addd062b4558acb523f516ecdfe3&afSmartRedirect=y)       | This is optional, The robot can use a remote device instead.  |
 | PCA9685 Servo Driver         | 1          | £4           |    [link](https://www.aliexpress.com/item/32469378576.html)       |  |
 | 7.4V 2S 5000mAh 50C LiPo Battery | 1          | £30           |    [link](https://amzn.eu/d/aaM0lUO)       | this can be smaller if you want less weight/cost |
 | SBEC 6V 20A | 1          | £20           |    [link](https://hobbyking.com/en_us/yep-20a-hv-2-12s-sbec-w-selectable-voltage-output.html)       | |

@@ -1,6 +1,6 @@
 """Isaac Lab articulation config for the Yertle quadruped.
 
-Spawns the USD converted from ``Simulation/yertle.URDF`` and defines the leg
+Spawns the USD converted from ``simulation/yertle.urdf`` and defines the leg
 actuators. Modelled on Isaac Lab's small-quadruped configs (Unitree A1/Go2).
 """
 
@@ -11,7 +11,7 @@ from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 
 # The USD produced by scripts/tools/convert_urdf.py (see isaac_lab/README.md).
-_USD_PATH = str(Path(__file__).resolve().parents[1] / "Simulation" / "usd" / "yertle.usd")
+_USD_PATH = str(Path(__file__).resolve().parents[1] / "simulation" / "usd" / "yertle.usd")
 
 YERTLE_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(

@@ -38,10 +38,10 @@ pip install "isaaclab[isaacsim,all]==2.3.2.post1" --extra-index-url https://pypi
 
 ```bash
 python IsaacLab/scripts/tools/convert_urdf.py \
-    Simulation/yertle.URDF Simulation/usd/yertle.usd --merge-joints --headless
+    simulation/yertle.urdf simulation/usd/yertle.usd --merge-joints --headless
 ```
 
-This is already done; the USD lives in `Simulation/usd/`.
+This is already done; the USD lives in `simulation/usd/`.
 
 ## 2. Train (GPU)
 

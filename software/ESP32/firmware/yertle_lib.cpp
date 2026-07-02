@@ -24,7 +24,7 @@ Flags flag;
 String InputDataString;
 
 
-/// WIfi  Variables , change if necessary!
+// WiFi settings; change to match your network.
 const char* ssid = "dog-net";
 const char* password = "dognet123";
 
@@ -111,7 +111,7 @@ void ServoClass::killServos() {
   ServoDriver.set_channel_value(servoId.rb_theta2, 0);
   ServoDriver.set_channel_value(servoId.rb_theta3, 0);
 }
-// Send currnet postion PWM data through serial com port (used or zeroing servos).
+// Send current position PWM data through the serial port (used for zeroing servos).
 void ServoClass::sendPWMData() {
   String val[12];
   val[0] = ServoDriver.get_channel_value(servoId.lf_theta1);
@@ -129,7 +129,7 @@ void ServoClass::sendPWMData() {
   Serial.print("PWM values: " + val[0] + " " + val[1] + " " + val[2] + " " + val[3] + " " + val[4] + " " + val[5] + " " + val[6] + " " + val[7] + " " + val[8] + " " + val[9] + " " + val[10] + " " + val[11]);
 }
 
-//Update fuctions for servos
+// Update function for the servos.
 void ServoClass::tick() {
   if (flag.newPoseAngleFlag) {  // <--- switched on in ROS task (extenally)
     moveToPose();
@@ -151,7 +151,7 @@ void ServoClass::tick() {
   }
 }
 
-//Compute IK for single limb.
+// Compute IK for a single limb.
 void ServoClass::Ik(float deltaX, float deltaY, float deltaZ, float& theta1, float& theta2, float& theta3) {
   if (deltaX == 0) { deltaX = 0.001; }
   if (deltaY == 0) { deltaY = 0.001; }
@@ -181,7 +181,7 @@ void ServoClass::Ik(float deltaX, float deltaY, float deltaZ, float& theta1, flo
   theta2 = dirXY - 360 * (ang1 / (2 * PI));  //  convert to deg
   theta3 = -dirXY + 180 - (360 * (ang1 / (2 * PI)) + 90);
 }
-// Compute Ik for all limbs using currentPoseAngle.
+// Compute IK for all limbs into currentPoseAngle.
 void ServoClass::solveIk() {
   Ik(poseCartesian.lf_x, poseCartesian.lf_y, poseCartesian.lf_z, currentPoseAngle.lf_theta1, currentPoseAngle.lf_theta2, currentPoseAngle.lf_theta3);
   Ik(poseCartesian.rf_x, poseCartesian.rf_y, poseCartesian.rf_z, currentPoseAngle.rf_theta1, currentPoseAngle.rf_theta2, currentPoseAngle.rf_theta3);
@@ -189,7 +189,7 @@ void ServoClass::solveIk() {
   Ik(poseCartesian.rb_x, poseCartesian.rb_y, poseCartesian.rb_z, currentPoseAngle.rb_theta1, currentPoseAngle.rb_theta2, currentPoseAngle.rb_theta3);
 }
 
-//Check sign of x float value.
+// Sign of a float value.
 int ServoClass::sgn(float x) {
   if (x < 0) { return -1; }
   if (x > 0) { return 1; }
@@ -199,7 +199,7 @@ int ServoClass::sgn(float x) {
 
 CommClass::CommClass() {}
 
-//Initialisation of Com Class (wifi)
+// Initialisation of CommClass (WiFi).
 void CommClass::start() {
   IPAddress subnet(255, 255, 0, 0);
   IPAddress primaryDNS(8, 8, 8, 8);    //optional
@@ -230,7 +230,7 @@ void CommClass::start() {
   }
 }
 
-// Uppate loop of commclass
+// Update loop of CommClass.
 void CommClass::listen() {
 
 
@@ -338,11 +338,11 @@ void CommClass::DecodeInputString(String InputString) {
     imuConfig.magYscale = parseString(InputString, ' ', 11).toFloat();
     imuConfig.magZscale = parseString(InputString, ' ', 12).toFloat();
     flag.updateIMUConfigFlag = true;
-    udpClient.print("--modifed IMU config");
+    udpClient.print("--modified IMU config");
   }
 }
 
-// Convert input string to  string array.
+// Split an input string by a separator and return the indexed token.
 String CommClass::parseString(String data, char separator, int index) {
   int found = 0;
   int strIndex[] = { 0, -1 };
@@ -367,7 +367,7 @@ void SensorClass::start() {
   delay(2000);
 }
 
-// Calibrate IMU for GYRO.
+// Calibrate the IMU accelerometer and gyro.
 void SensorClass::calibrate() {
   Serial.println("hold still  in 3,2,1 !!");
   delay(2000);
@@ -375,7 +375,7 @@ void SensorClass::calibrate() {
   Serial.println("done !!");
 
 }
-// Calibrate IMU for Magnometer.
+// Calibrate the IMU magnetometer.
 void SensorClass::calibrateMag() {
   Serial.println("move around in fig of 8 in 3,2,1 !!");
   delay(3000);
