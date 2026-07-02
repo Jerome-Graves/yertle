@@ -41,7 +41,7 @@ paper/*.synctex.gz
 
 # ---- Generated robot model (regenerate with convert_urdf; config.yaml holds a
 #      local absolute path) ----
-Simulation/usd/
+simulation/usd/
 
 # ---- OS ----
 .DS_Store

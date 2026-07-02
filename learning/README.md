@@ -4,7 +4,7 @@ Reinforcement-learning pipeline that replaces the hand-tuned sinusoidal gait
 with a **policy trained in simulation** and intended for **sim-to-real**
 transfer onto the physical robot.
 
-The environment reuses the existing `Simulation/yertle.URDF`, so the learned
+The environment reuses the existing `simulation/yertle.urdf`, so the learned
 controller drives the same 12-DOF machine the rest of the repository builds.
 
 ```
@@ -84,7 +84,7 @@ The policy is a small MLP, so deployment is light:
 2. Run inference at the control rate on the Raspberry Pi (or a laptop) using
    the IMU + commanded joint state to build the observation.
 3. Stream the resulting joint targets to the ESP32 over the existing UDP path
-   (`f`/`a` command strings in `Software/ESP32/firmware`).
+   (`f`/`a` command strings in `software/ESP32/firmware`).
 
 The privileged observation term (base linear velocity) is handled by
 teacher-student distillation in the GPU pipeline

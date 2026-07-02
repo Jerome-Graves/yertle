@@ -18,7 +18,7 @@ extern struct PoseAngle {
   float rb_theta1 = 0.0;
   float rb_theta2 = 0.0;
   float rb_theta3 = 0.0;
-} defalutPoseAngle, currentPoseAngle;
+} defaultPoseAngle, currentPoseAngle;
 
 extern struct ImuData {
   float magX = 0.0;
@@ -61,7 +61,7 @@ extern struct PoseCartesian {  // Data type for cartesian pose xyz.
   float rb_x = -1.0;
   float rb_y = 20.0;
   float rb_z = 0;
-} defalutPoseCartesian, poseCartesian;
+} defaultPoseCartesian, poseCartesian;
 
 extern struct Flags{
   bool newPoseAngleFlag = false ;

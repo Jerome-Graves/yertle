@@ -35,7 +35,7 @@ void setup() {
   delay(500);
 }
 
-//  This task that controls I2C , servos , sesors.
+// Task pinned to core 1: I2C, servos and sensors.
 
 void hardwareTask(void* parameter) {
   Serial.print("\nHardwareTask is running on core ");
@@ -53,7 +53,7 @@ void hardwareTask(void* parameter) {
 }
 
 
-//  This task that contols wifi, serial.
+// Task pinned to core 0: WiFi and serial communication.
 void commTask(void* parameter) {
   Serial.print("\ncommTask is running on core ");
   Serial.println(xPortGetCoreID());

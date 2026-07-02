@@ -1,3 +1,10 @@
+"""Yertle control GUI.
+
+Tkinter application that drives the robot over serial or UDP: servo and
+foot-position control, body translation, a PID balance mode, the hand-tuned
+gait generator, and an optional PyBullet digital twin.
+"""
+
 import tkinter as tk
 import tkinter.ttk as ttk
 import serial.tools.list_ports
@@ -22,21 +29,14 @@ from pathlib import Path
 
 # Resolve paths relative to this file so the app runs from any working
 # directory and on any OS (Windows / Linux / macOS).
-SCRIPT_DIR = Path(__file__).resolve().parent          # .../Software/YertleUI
+SCRIPT_DIR = Path(__file__).resolve().parent          # .../software/yertle_ui
 REPO_ROOT = SCRIPT_DIR.parents[1]                      # repository root
 
 filename = str(SCRIPT_DIR / "config.ini")
-URDF_PATH = str(REPO_ROOT / "Simulation" / "yertle.URDF")
+URDF_PATH = str(REPO_ROOT / "simulation" / "yertle.urdf")
 
 if not os.path.exists(filename):
     raise FileNotFoundError(f"Could not find config file: {filename}")
-
-
-
-
-
-
-
 
 
 global magDataX
@@ -64,20 +64,13 @@ rotDataY = 0
 rotDataZ = 0 
 
 
-
-
-
-
-
        
 
 
 #### connect to wifi 
 
 
-
 ### take check data from robot from sensor info
-
 
 
 class FileCommands:
@@ -169,49 +162,49 @@ class FileCommands:
 class GUICommands:
     
     def showServoGUI():
-        app.balaceMode
+        app.balanceMode
         app.gui.balancePidWindow.hide()
         app.gui.servoAngleWindow.show()
         app.gui.bodyMoveWindow.hide()
         app.gui.footPositionWindow.hide()
         app.gui.gaitWindow.hide()
-        app.balaceMode = False
+        app.balanceMode = False
 
     def showFootGUI():
-        app.balaceMode
+        app.balanceMode
         app.gui.balancePidWindow.hide()
         app.gui.servoAngleWindow.hide()
         app.gui.bodyMoveWindow.hide()
         app.gui.footPositionWindow.show()
         app.gui.gaitWindow.hide()
-        app.balaceMode = False
+        app.balanceMode = False
 
     def showBodyGUI():
-        app.balaceMode
+        app.balanceMode
         app.gui.bodyMoveWindow.show()
         app.gui.balancePidWindow.hide()
         app.gui.servoAngleWindow.hide()
         app.gui.footPositionWindow.hide()
         app.gui.gaitWindow.hide()
-        app.balaceMode = False
+        app.balanceMode = False
 
     def showBalanceGUI():
-        app.balaceMode
+        app.balanceMode
         app.gui.bodyMoveWindow.hide()
         app.gui.balancePidWindow.show()
         app.gui.servoAngleWindow.hide()
         app.gui.footPositionWindow.hide()
         app.gui.gaitWindow.hide()
-        app.balaceMode = True
+        app.balanceMode = True
 
     def showGaitGUI():
-        app.balaceMode
+        app.balanceMode
         app.gui.bodyMoveWindow.hide()
         app.gui.balancePidWindow.hide()
         app.gui.servoAngleWindow.hide()
         app.gui.footPositionWindow.hide()
         app.gui.gaitWindow.show()
-        app.balaceMode = True
+        app.balanceMode = True
 
 global parentWindow
 
@@ -349,8 +342,6 @@ class GUI:
                 balanceSlider_labelrotY.grid(row=0, column=3, sticky="nsew")
 
 
-
-
                 balanceSlider_labelYLP = ttk.Label(self.frm_balance,text='P:')
                 balanceSlider_labelYLP.grid(row=1, column=2, sticky="nsew")
 
@@ -418,7 +409,6 @@ class GUI:
                 self.btnResetPid.grid(row=2, column=4,sticky="nsew",padx=5, pady=5,columnspan=2)
 
 
-
             def hide(self):
                 self.frm_balance.grid_forget()
             def show(self):
@@ -446,7 +436,6 @@ class GUI:
                 self. slider3 = tk.Scale(self.frm_servoAngles,from_=13,to=90,orient='horizontal',resolution=1)
                 self.slider3.bind("<ButtonRelease-1>",YertleCommands.writeAnglesButton)
                 self.slider3.grid(row=3, column=0, sticky="nsew")
-
 
 
                 self.slider_label2 = ttk.Label(self.frm_servoAngles,text='Right Front self.leg Angles:',)
@@ -527,7 +516,6 @@ class GUI:
                 self.fPosSlider3.grid(row=3, column=0, sticky="nsew")
 
 
-
                 self.fPosSlider_label2 = ttk.Label(self.frm_footPos,text='Right Front self.leg XYZ:',)
                 self.fPosSlider_label2.grid(row=0, column=1, sticky="nsew")
 
@@ -542,8 +530,6 @@ class GUI:
                 self.fPosSlider6 = tk.Scale(self.frm_footPos,from_=-15,to=15,orient='horizontal',resolution=1)
                 self.fPosSlider6.bind("<ButtonRelease-1>",YertleCommands.writeFootPositionButton)
                 self.fPosSlider6.grid(row=3, column=1, sticky="nsew")
-
-
 
 
                 self.fPosSlider_label3 = ttk.Label(self.frm_footPos,text='Left Back self.leg XYZ:')
@@ -606,7 +592,6 @@ class GUI:
                 self.bMoveSlider3.grid(row=3, column=0, sticky="nsew")
 
 
-
                 self.bMoveSlider_label2 = ttk.Label(self.frm_bodyMove,text='Body Rotation XYZ:',)
                 self.bMoveSlider_label2.grid(row=0, column=1, sticky="nsew")
 
@@ -633,7 +618,6 @@ class GUI:
                 self.frm_gait = tk.Frame(parentWindow, relief=tk.RAISED, bd=1)
                 self.frm_gait.rowconfigure((0,1,2,3,4,5),  weight=1,uniform='456')
                 self.frm_gait.columnconfigure((0,1,2,3),  weight=1,uniform='875')
-
 
 
                 self.Slider1 = tk.Scale(self.frm_gait,from_=0,to=100,orient='horizontal',resolution=0.1)
@@ -845,7 +829,7 @@ class YertleCommands:
         #app.PidY.ImuPidY.tunings( float(val4) , float(val5) , float(val))
 
     def startSimulation():
-        app.simulation = YerltleSimulation(app)
+        app.simulation = YertleSimulation(app)
         simulation_thread = threading.Thread(target=app.simulation.threadFunction)
         simulation_thread.start()
         app.simulationSensorMode = True
@@ -900,8 +884,6 @@ class YertleCommands:
             rb_x = base[0] + translateX[0] + translateY[0] + translateZ[0] - rotateY[0] - rotateX[0] + rotateZ[0]
             rb_y = base[1] + translateX[1] + translateY[1] + translateZ[1] + rotateY[1] - rotateX[1] + rotateZ[1]
             rb_z = base[2] + translateX[2] + translateY[2] + translateZ[2] - rotateY[2] - rotateX[2] - rotateZ[2]
-
-
 
 
  
@@ -1042,7 +1024,7 @@ class YertlePid:
             
             while True:
 
-                if (self.parent.balaceMode == True): 
+                if (self.parent.balanceMode == True): 
                     if (self.moveCount >=360):
 
                         self.moveCount = 0
@@ -1165,7 +1147,7 @@ class YertleSerial:
             if self.serialObj.isOpen()and self.serialObj.in_waiting ==False:
                 self.serialObj.write(inputString.encode())
 
-class YerltleSimulation:
+class YertleSimulation:
     def __init__(self,parent):
         self.parent = parent
         physicsClient = p.connect(p.GUI)  # or p.DIRECT for non-graphical version
@@ -1222,19 +1204,19 @@ class YerltleSimulation:
         self.rb_angles[2] = app.gui.servoAngleWindow.slider12.get() -90
         self.SetServosSimulation()
 
-    def updateBodyVals(self,lf_curretPosition,rf_curretPosition,lb_curretPosition,rb_curretPosition):
+    def updateBodyVals(self,lf_currentPosition,rf_currentPosition,lb_currentPosition,rb_currentPosition):
 
         global rf_oldPosition 
         global lf_oldPosition 
         global rb_oldPosition 
         global lb_oldPosition 
 
-        val_lf, val_rf, val_lb, val_rb = self.calcAllIk(lf_curretPosition,rf_curretPosition,lb_curretPosition,rb_curretPosition)
+        val_lf, val_rf, val_lb, val_rb = self.calcAllIk(lf_currentPosition,rf_currentPosition,lb_currentPosition,rb_currentPosition)
 
-        rf_oldPosition = rf_curretPosition
-        lf_oldPosition = lf_curretPosition
-        rb_oldPosition = rb_curretPosition
-        lb_oldPosition = lb_curretPosition
+        rf_oldPosition = rf_currentPosition
+        lf_oldPosition = lf_currentPosition
+        rb_oldPosition = rb_currentPosition
+        lb_oldPosition = lb_currentPosition
         self.lf_angles[0] =int(val_lf[0] / math.pi * 180) -90
         self.lf_angles[1] = int(val_lf[1] / math.pi * 180) -90
         self.lf_angles[2] = int(val_lf[2] / math.pi * 180) +90 
@@ -1315,8 +1297,8 @@ class YerltleSimulation:
         #print(theta)
         return (theta)
 
-    def calcAllIk(self,lf_curretPosition,rf_curretPosition,lb_curretPosition,rb_curretPosition):
-        return [self.calcIk(lf_curretPosition), self.calcIk(rf_curretPosition), self.calcIk(lb_curretPosition), self.calcIk(rb_curretPosition)]
+    def calcAllIk(self,lf_currentPosition,rf_currentPosition,lb_currentPosition,rb_currentPosition):
+        return [self.calcIk(lf_currentPosition), self.calcIk(rf_currentPosition), self.calcIk(lb_currentPosition), self.calcIk(rb_currentPosition)]
 
     def updateFootPositionVals(self):
         self.lf_footPosition[0] = - app.gui.footPositionWindow.fPosSlider1.get() 
@@ -1403,7 +1385,7 @@ class YertleApp:
         self.gui = GUI(self)
         self.commands = YertleCommands()
         self.simulationSensorMode = False
-        self.balaceMode = False
+        self.balanceMode = False
         self.yertleController = YertleController(self)
 
         #self.gui.balancePidWindow.show()
@@ -1430,6 +1412,5 @@ if __name__ == "__main__":
 
 
     
-
 
 

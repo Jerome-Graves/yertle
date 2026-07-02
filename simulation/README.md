@@ -20,7 +20,7 @@
 
 - - -
 <br><br>
-The robot model is the URDF file [yertle.URDF](yertle.URDF). It is
+The robot model is the URDF file [yertle.urdf](yertle.urdf). It is
 simulation-ready: the inertia tensors are physically valid, the twelve leg
 joints are revolute with firmware-derived limits, and the actuators carry
 effort and velocity caps, so the same model works in PyBullet and in
@@ -30,7 +30,7 @@ For NVIDIA Isaac Sim / Isaac Lab, convert it to USD with Isaac Lab's importer
 (the generated `usd/` directory is regenerable and not committed):
 
 ```
-python IsaacLab/scripts/tools/convert_urdf.py Simulation/yertle.URDF Simulation/usd/yertle.usd --merge-joints --headless
+python IsaacLab/scripts/tools/convert_urdf.py simulation/yertle.urdf simulation/usd/yertle.usd --merge-joints --headless
 ```
 <br>
 

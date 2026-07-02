@@ -57,7 +57,7 @@ The current cost of the robot is around £250.
 <br>
 
 ## Design:
-Click [here](Design/README.md) for 3D printer parts, assembly instructions and bill of materials.
+Click [here](design/README.md) for 3D printer parts, assembly instructions and bill of materials.
 <br><br>
 Yertle is a  fusion of the leg design of <a href="https://grabcad.com/library/diy-quadruped-robot-1">Kangal</a> and the body of <a href="https://spotmicroai.readthedocs.io/en/latest/">SpotMicro</a>. As such, you can use the control software and electronics from any Kangal or derivative with this robot (with a little modification). Any Modifications for the spot micro shell will also work with this robot. And You can exchange the legs for Kangal's if you want. 
 <br>
@@ -74,7 +74,7 @@ I have built a few quadruped robots and there are plenty of interesting leg mech
 <br>
 
 ## Electronics:
-Click [here](Design/README.md/#electronics) for an electronics and wiring explanation.
+Click [here](design/README.md#electronics) for an electronics and wiring explanation.
 <br><br>
 I'm currently working on a better description of my wiring. I have soldered a custom Hat from my RPi that had all the necessary components. The robot was originally designed to use just the RPi but I found it to be unreliable as it is more complex to reset the device and more prone to corruption. As The ESP32 has WiFi I can debug the device remotely without a complex startup/shut down routine.
 <br><br>
@@ -86,7 +86,7 @@ If you are familiar with wiring  <a href="https://grabcad.com/library/diy-quadru
 
 
 ## Software:
-Click [here](Software/README.md) for the software.
+Click [here](software/README.md) for the software.
 <br><br>
 The software runs as a host/robot pair over the serial port or UDP over WiFi. The robot firmware controls all sensors and servos, computes the inverse kinematics and applies safety limits. The host side is written in Python 3: it takes the robot's sensor data, generates the motion (the hand-tuned gait in the GUI, or a learned policy from the RL pipelines) and streams it back in real time.
 <br><br>
@@ -99,7 +99,7 @@ There is also a ROS 2 package that runs a trained policy as a node, with a close
 <br>
 
 ## Simulation:
-Click [here](Simulation/README.md) for simulation tools.<br><br>
+Click [here](simulation/README.md) for simulation tools.<br><br>
 There is a simulation built into the python software. It enables you to test movement with the controller without a robot. 
 <br><br>
 <img   style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;
@@ -165,11 +165,11 @@ python isaac_lab/distill.py --headless --teacher <model.pt>
 ## Repository structure
 
 ```
-Design/        3D-printed parts, assembly guide and bill of materials
-Simulation/    URDF model (valid inertials, firmware joint limits) and meshes
-Software/
+design/        3D-printed parts, assembly guide and bill of materials
+simulation/    URDF model (valid inertials, firmware joint limits) and meshes
+software/
     ESP32/     Robot firmware (C++, Arduino / FreeRTOS)
-    YertleUI/  Python control GUI: IK, PID balance, gait, PyBullet simulation
+    yertle_ui/  Python control GUI: IK, PID balance, gait, PyBullet simulation
 learning/      RL locomotion, CPU (Gymnasium + PyBullet + PPO) and sim-to-real bridge
 isaac_lab/     RL locomotion, GPU (Isaac Lab + rsl_rl): flat, rough terrain,
                distillation, Isaac ROS 2 bridge
@@ -190,14 +190,14 @@ Requires Python 3.9 or newer.
 git clone https://github.com/Jerome-Graves/yertle.git
 cd yertle
 pip install -r requirements.txt
-python Software/YertleUI/YertleUI.py
+python software/yertle_ui/yertle_ui.py
 ```
 
 On Debian/Ubuntu, tkinter is a separate system package: `sudo apt install python3-tk`.
 
 You do not need the physical robot to try it. Launch the GUI, press **Start Simulation** to open the PyBullet digital twin, then drive it with the arrow keys.
 
-**Building the firmware:** open `Software/ESP32/firmware/firmware.ino` in the Arduino IDE with the ESP32 board package installed, along with the `FaBoPWM_PCA9685` and `MPU9250` libraries. WiFi credentials and IP addresses are set near the top of `yertle_lib.cpp`.
+**Building the firmware:** open `software/ESP32/firmware/firmware.ino` in the Arduino IDE with the ESP32 board package installed, along with the `FaBoPWM_PCA9685` and `MPU9250` libraries. WiFi credentials and IP addresses are set near the top of `yertle_lib.cpp`.
 
 - - -
 <br>
