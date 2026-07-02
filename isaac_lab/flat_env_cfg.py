@@ -57,13 +57,17 @@ class YertleFlatEnvCfg(LocomotionVelocityRoughEnvCfg):
 
         # --- rewards (body-name remap + small-robot tuning) ---
         self.rewards.feet_air_time.params["sensor_cfg"].body_names = _FEET
-        self.rewards.feet_air_time.weight = 0.25
+        self.rewards.feet_air_time.weight = 0.25           # cleaner stepping (proven value)
         self.rewards.undesired_contacts = None
         self.rewards.flat_orientation_l2.weight = -2.5
         self.rewards.dof_torques_l2.weight = -0.0002
         self.rewards.track_lin_vel_xy_exp.weight = 1.5
         self.rewards.track_ang_vel_z_exp.weight = 0.75
-        self.rewards.dof_acc_l2.weight = -2.5e-7
+        # smoothness: nudge toward a less twitchy gait, but keep per-step reward
+        # positive so the policy is not incentivised to end the episode early.
+        self.rewards.action_rate_l2.weight = -0.015        # base -0.01
+        self.rewards.ang_vel_xy_l2.weight = -0.05          # base
+        self.rewards.dof_pos_limits.weight = -0.1          # gentle, for the joint limits
 
         # --- terminations ---
         self.terminations.base_contact.params["sensor_cfg"].body_names = _BASE

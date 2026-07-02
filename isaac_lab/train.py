@@ -22,6 +22,7 @@ from rsl_rl.runners import OnPolicyRunner  # noqa: E402
 from isaaclab.app import AppLauncher
 
 parser = argparse.ArgumentParser(description="Train Yertle locomotion in Isaac Lab (rsl_rl).")
+parser.add_argument("--task", type=str, default="flat", choices=["flat", "rough"])
 parser.add_argument("--num_envs", type=int, default=4096)
 parser.add_argument("--max_iterations", type=int, default=500)
 parser.add_argument("--seed", type=int, default=0)
@@ -41,17 +42,22 @@ from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper  # noqa: E402
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import isaac_lab  # noqa: F401,E402  (registers the gym task)
 from isaac_lab.flat_env_cfg import YertleFlatEnvCfg  # noqa: E402
-from isaac_lab.rsl_rl_ppo_cfg import YertleFlatPPORunnerCfg  # noqa: E402
+from isaac_lab.rough_env_cfg import YertleRoughEnvCfg  # noqa: E402
+from isaac_lab.rsl_rl_ppo_cfg import YertleFlatPPORunnerCfg, YertleRoughPPORunnerCfg  # noqa: E402
 
-TASK = "Isaac-Velocity-Flat-Yertle-v0"
+_TASKS = {
+    "flat": ("Isaac-Velocity-Flat-Yertle-v0", YertleFlatEnvCfg, YertleFlatPPORunnerCfg),
+    "rough": ("Isaac-Velocity-Rough-Yertle-v0", YertleRoughEnvCfg, YertleRoughPPORunnerCfg),
+}
 
 
 def main():
-    env_cfg = YertleFlatEnvCfg()
+    TASK, EnvCfg, RunnerCfg = _TASKS[args_cli.task]
+    env_cfg = EnvCfg()
     env_cfg.scene.num_envs = args_cli.num_envs
     env_cfg.seed = args_cli.seed
 
-    agent_cfg = YertleFlatPPORunnerCfg()
+    agent_cfg = RunnerCfg()
     agent_cfg.max_iterations = args_cli.max_iterations
     agent_cfg.seed = args_cli.seed
 

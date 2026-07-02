@@ -5,12 +5,16 @@
 <p align="center" >
 <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" /> 
 <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" /> 
-<!--
-<img src="https://img.shields.io/badge/ros-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white" /> 
-<img src="https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white" /></p>
--->
-<br>
-<img  align="center"  style=" display: block;margin-left: auto;margin-right: auto;width:400px;border: 5px solid grey;border-radius:20%;" src="https://user-images.githubusercontent.com/12387040/177191503-e122d730-9d83-4a72-aaf7-d9e7b08e673a.gif">
+<img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=pytorch&logoColor=white" /> 
+<img src="https://img.shields.io/badge/NVIDIA%20Isaac%20Lab-%2376B900.svg?style=for-the-badge&logo=nvidia&logoColor=white" /> 
+<img src="https://img.shields.io/badge/ros%202-%230A0FF9.svg?style=for-the-badge&logo=ros&logoColor=white" /> 
+</p>
+
+<p align="center"><b>From a hand-tuned gait to reinforcement-learned locomotion: trained on CPU (PyBullet) and GPU (Isaac Lab), deployed via a sim-to-real bridge and ROS 2.</b></p>
+
+<p align="center">
+<img src="media/yertle_demo.gif" width="720" />
+</p>
 
 <br>
 The robot consists of:

@@ -26,6 +26,19 @@ ENV/
 learning/runs/
 isaac_lab/runs/
 
+# ---- colcon build logs ----
+ros2/log/
+
+# ---- LaTeX build artifacts (keep the .tex and the built .pdf) ----
+paper/*.aux
+paper/*.bbl
+paper/*.bcf
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.run.xml
+paper/*.synctex.gz
+
 # ---- Generated robot model (regenerate with convert_urdf; config.yaml holds a
 #      local absolute path) ----
 Simulation/usd/

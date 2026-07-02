@@ -30,3 +30,14 @@ class YertleFlatPPORunnerCfg(RslRlOnPolicyRunnerCfg):
         desired_kl=0.01,
         max_grad_norm=1.0,
     )
+
+
+@configclass
+class YertleRoughPPORunnerCfg(YertleFlatPPORunnerCfg):
+    def __post_init__(self):
+        super().__post_init__()
+        # rough terrain is harder: bigger net, more iterations
+        self.max_iterations = 1000
+        self.experiment_name = "yertle_rough"
+        self.policy.actor_hidden_dims = [256, 128, 64]
+        self.policy.critic_hidden_dims = [256, 128, 64]

@@ -18,6 +18,7 @@ from rsl_rl.runners import OnPolicyRunner
 from isaaclab.app import AppLauncher
 
 parser = argparse.ArgumentParser(description="Play a trained Yertle policy in Isaac Lab.")
+parser.add_argument("--task", type=str, default="flat", choices=["flat", "rough"])
 parser.add_argument("--checkpoint", type=str, required=True, help="Path to a saved model_*.pt")
 parser.add_argument("--num_envs", type=int, default=32)
 parser.add_argument("--steps", type=int, default=600)
@@ -38,15 +39,20 @@ from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper  # noqa: E402
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import isaac_lab  # noqa: F401,E402  (registers tasks)
 from isaac_lab.flat_env_cfg import YertleFlatEnvCfg_PLAY  # noqa: E402
-from isaac_lab.rsl_rl_ppo_cfg import YertleFlatPPORunnerCfg  # noqa: E402
+from isaac_lab.rough_env_cfg import YertleRoughEnvCfg_PLAY  # noqa: E402
+from isaac_lab.rsl_rl_ppo_cfg import YertleFlatPPORunnerCfg, YertleRoughPPORunnerCfg  # noqa: E402
 
-TASK = "Isaac-Velocity-Flat-Yertle-Play-v0"
+_TASKS = {
+    "flat": ("Isaac-Velocity-Flat-Yertle-Play-v0", YertleFlatEnvCfg_PLAY, YertleFlatPPORunnerCfg),
+    "rough": ("Isaac-Velocity-Rough-Yertle-Play-v0", YertleRoughEnvCfg_PLAY, YertleRoughPPORunnerCfg),
+}
 
 
 def main():
-    env_cfg = YertleFlatEnvCfg_PLAY()
+    TASK, EnvCfg, RunnerCfg = _TASKS[args_cli.task]
+    env_cfg = EnvCfg()
     env_cfg.scene.num_envs = args_cli.num_envs
-    agent_cfg = YertleFlatPPORunnerCfg()
+    agent_cfg = RunnerCfg()
 
     env = gym.make(TASK, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
     if args_cli.video:

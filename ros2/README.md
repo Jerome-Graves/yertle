@@ -34,6 +34,29 @@ node runs live — publishing a `/cmd_vel` and an `/imu` produces `/joint_comman
 (12 joint targets) from the policy. It was validated on Windows with no WSL, via
 RoboStack (ROS 2 as conda packages), which is the quickest way to run it here.
 
+**Closed-loop demo.** `demo_ros2_loop.py` runs the full control loop over ROS 2
+topics: a PyBullet simulation node publishes `/joint_states` and `/imu/data` and
+applies `/joint_commands`, while `policy_node` runs the trained policy against a
+`/cmd_vel` command. With the trained PyBullet policy the robot walks
+(~0.5 m of base travel in 8 s at a 0.25 m/s command):
+
+```bash
+conda run -n ros2 python ros2/demo_ros2_loop.py --policy learning/runs/ppo_walk2/policy.zip
+```
+
+**Isaac Sim bridge (validated, bidirectional).** `isaac_lab/ros2_bridge.py`
+exposes the GPU simulation on ROS 2 topics through Isaac's
+`isaacsim.ros2.bridge` OmniGraph extension: it publishes `/joint_states` and
+`/clock` and subscribes to `/joint_command` (sensor_msgs/JointState). This was
+verified end to end across two separate ROS 2 installations: the RoboStack env
+receives all 12 Yertle joints on `/joint_states`, and commanding
+`/joint_command` from RoboStack moves the joints in Isaac (thigh commanded to
+-1.2 rad, tracked exactly). Two Windows notes, handled by the launcher: the
+bridge needs `ROS_DISTRO=humble` and Isaac's bundled
+`isaacsim.ros2.bridge\humble\lib` on `PATH` before startup, and the sim loop
+must step with an app update (`sim.step(render=True)`) or the OmniGraph
+publishers never tick.
+
 ## Build and run — Linux (Ubuntu, ROS 2 Humble/Jazzy)
 
 ```bash

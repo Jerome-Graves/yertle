@@ -56,8 +56,10 @@ def _projected_gravity_from_quaternion(x: float, y: float, z: float, w: float) -
 
 
 class PolicyNode(Node):
-    def __init__(self):
-        super().__init__("yertle_policy")
+    def __init__(self, **kwargs):
+        # kwargs (e.g. parameter_overrides) are forwarded to rclpy.node.Node,
+        # which lets callers inject the policy_path in-process.
+        super().__init__("yertle_policy", **kwargs)
 
         self.declare_parameter("policy_path", "")
         self.declare_parameter("control_hz", 60.0)
