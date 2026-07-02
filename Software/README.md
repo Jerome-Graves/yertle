@@ -69,9 +69,11 @@ You can use this GUI to Zero servos before fully constructing robot.
 <br>
 
 
-# ROS
-(python)
-(todo)
+# ROS 2
+Done. A ROS 2 package (`ros2/yertle_rl`) runs a trained locomotion policy as a
+node (subscribes `/cmd_vel` and `/imu/data`, publishes 12 joint targets), with a
+closed-loop walking demo over live topics and a bidirectional Isaac Sim bridge.
+See [ros2/README.md](../ros2/README.md).
 - - -
 
 <br>

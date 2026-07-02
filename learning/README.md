@@ -86,13 +86,16 @@ The policy is a small MLP, so deployment is light:
 3. Stream the resulting joint targets to the ESP32 over the existing UDP path
    (`f`/`a` command strings in `Software/ESP32/firmware`).
 
-The two privileged observation terms (base linear velocity) are either
-estimated on-board or dropped and retrained; both are standard practice.
+The privileged observation term (base linear velocity) is handled by
+teacher-student distillation in the GPU pipeline
+([isaac_lab/distill.py](../isaac_lab/distill.py)): the student policy matches
+the teacher with that term removed, so deployment needs only on-board signals.
 
 ## Status
 
-The environment, training and evaluation scripts are complete and validated
-(the env steps, resets and trains). Producing a polished trotting policy needs
-a full training run (order of a few million steps); the standing pose and
-reward weights in `yertle_env.py` are sensible starting points and are the
-first things to tune for your servos.
+Complete and validated end to end: the environment trains, and the included
+full run (3M steps) produced a walking policy that tracks commanded forward
+speeds of about 0.2 m/s. The same policy also drives the robot over live ROS 2
+topics in the closed-loop demo (`ros2/demo_ros2_loop.py`). For a faster, more
+polished gait, see the GPU pipeline in [isaac_lab/](../isaac_lab/README.md),
+which trains in minutes and adds rough terrain and distillation.

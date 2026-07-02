@@ -1,6 +1,6 @@
 ![new yertle logo](https://user-images.githubusercontent.com/12387040/177182736-baa268a0-e6b8-4a5e-a758-1f791cb3d4f0.png)
 
-# A 3D Printed Quadrupedal Robot for Locomotion Research (WIP)
+# A 3D Printed Quadrupedal Robot for Locomotion Research
 
 <p align="center" >
 <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white" /> 
@@ -88,12 +88,12 @@ If you are familiar with wiring  <a href="https://grabcad.com/library/diy-quadru
 ## Software:
 Click [here](Software/README.md) for the software.
 <br><br>
-The software runs in a master/slave system over the serial port or UPD over WiFi. The robot firmware acts as the slave. It controls all sensors, servos, computes the inverse kinematics of the robot and calculates safety limits. The main control system is written in Python3. It acts as a master It takes all data from the robot sensors and ROS(todo), generates the walk and sends this to the Slave.
+The software runs as a host/robot pair over the serial port or UDP over WiFi. The robot firmware controls all sensors and servos, computes the inverse kinematics and applies safety limits. The host side is written in Python 3: it takes the robot's sensor data, generates the motion (the hand-tuned gait in the GUI, or a learned policy from the RL pipelines) and streams it back in real time.
 <br><br>
 The firmware was written in C++ using Arduino IDE so you can modify it to work on a different microcontroller if you want. 
 The Python Control software uses a GUI and can run on anything that has WiFi, a screen and can run Python3, including android devices(not tested).
 <br><br>
-The software can also runs ROS nodes for ROS2 integration(todo).
+There is also a ROS 2 package that runs a trained policy as a node, with a closed-loop demo and an Isaac Sim bridge; see [ros2/README.md](ros2/README.md).
 
 - - -
 <br>
@@ -135,10 +135,15 @@ python -m learning.train --timesteps 3000000 --n-envs 8
 ## GPU locomotion with NVIDIA Isaac Lab:
 Click [here](isaac_lab/README.md) for the Isaac Lab pipeline.<br><br>
 The same robot is also trained on **NVIDIA Isaac Lab** (Isaac Sim 5.1 + PhysX),
-the industry-standard stack for legged-robot RL. The URDF is converted to USD and
-dropped into Isaac Lab's velocity-tracking locomotion task, then trained with
-`rsl_rl` PPO across **4096 parallel environments** on a single RTX GPU. A walking
-policy converges in about ten minutes (~80,000 simulation steps per second).
+the industry-standard stack for legged-robot RL. The URDF (with firmware joint
+limits and actuator caps) is converted to USD and dropped into Isaac Lab's
+velocity-tracking locomotion task, then trained with `rsl_rl` PPO across
+**4096 parallel environments** on a single RTX GPU. A walking policy converges
+in about ten minutes (~80,000 simulation steps per second). The pipeline also
+includes a **rough-terrain task** (procedural terrain plus a height scanner) and
+**teacher-student distillation** that removes the privileged base-velocity
+observation with no loss of performance, giving a policy that runs from
+on-board sensors only.
 
 <p align="center">
 <img src="isaac_lab/media/yertle_isaac_walk.gif" width="600" />
@@ -148,8 +153,10 @@ policy converges in about ten minutes (~80,000 simulation steps per second).
 
 ```bash
 # in the Isaac Sim python env, from the repo root
-python isaac_lab/train.py --headless --num_envs 4096 --max_iterations 500
-python isaac_lab/play.py --checkpoint <model.pt> --num_envs 16 --video
+python isaac_lab/train.py --task flat --headless --num_envs 4096 --max_iterations 1500
+python isaac_lab/train.py --task rough --headless --num_envs 4096 --max_iterations 1000
+python isaac_lab/play.py --task flat --checkpoint <model.pt> --num_envs 16 --video
+python isaac_lab/distill.py --headless --teacher <model.pt>
 ```
 
 - - -
@@ -159,13 +166,16 @@ python isaac_lab/play.py --checkpoint <model.pt> --num_envs 16 --video
 
 ```
 Design/        3D-printed parts, assembly guide and bill of materials
-Simulation/    URDF model and meshes for the PyBullet digital twin
+Simulation/    URDF model (valid inertials, firmware joint limits) and meshes
 Software/
     ESP32/     Robot firmware (C++, Arduino / FreeRTOS)
     YertleUI/  Python control GUI: IK, PID balance, gait, PyBullet simulation
 learning/      RL locomotion, CPU (Gymnasium + PyBullet + PPO) and sim-to-real bridge
-isaac_lab/     RL locomotion, GPU (NVIDIA Isaac Lab + rsl_rl, 4096 parallel envs)
-ros2/          ROS 2 node that runs a trained policy
+isaac_lab/     RL locomotion, GPU (Isaac Lab + rsl_rl): flat, rough terrain,
+               distillation, Isaac ROS 2 bridge
+ros2/          ROS 2 package + closed-loop demo for a trained policy
+paper/         Technical report (LaTeX; built PDF included)
+media/         Demo montage video and GIF
 requirements.txt, pyproject.toml   Python dependencies
 ```
 
@@ -192,8 +202,16 @@ You do not need the physical robot to try it. Launch the GUI, press **Start Simu
 - - -
 <br>
 
+## Technical report
+
+A six-page write-up of the whole project (system, both RL pipelines, results on
+flat and rough terrain, distillation, deployment and ROS 2 integration, and the
+engineering lessons) is in [paper/yertle_report.pdf](paper/yertle_report.pdf).
+
+- - -
+<br>
+
 ## To Do
 
-*  Deploy an Isaac Lab-trained policy to the physical robot and close the sim-to-real loop
-*  Add joint limits and an actuator model for a tighter sim-to-real match
-*  Train on rough terrain (the Isaac Lab task already supports it)
+*  Deploy the distilled policy to the physical robot and close the sim-to-real loop
+*  Identify a stable measured actuator model from bench data
