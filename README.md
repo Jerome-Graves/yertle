@@ -207,6 +207,11 @@ engineering lessons) is in [paper/yertle_report.pdf](paper/yertle_report.pdf).
 - - -
 <br>
 
+## See also
+
+The ideas behind this robot (kinematics, odometry, feedback control, state estimation, planning) are taught
+from scratch, in Python on a simulated robot, in the free [BugBot university lessons](https://www.bugbotlab.com/learn/university/).
+
 ## To Do
 
 *  Deploy the distilled policy to the physical robot and close the sim-to-real loop
